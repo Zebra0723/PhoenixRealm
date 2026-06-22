@@ -417,6 +417,9 @@ h1,h2,h3,h4 {
 .avail-bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: 28px; padding: 14px 20px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-sm); }
 .avail-bar__note { display: inline-flex; align-items: center; gap: 10px; font-size: .92rem; color: var(--ink-soft); }
 .avail-bar__dot { width: 9px; height: 9px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 0 4px var(--teal-tint); }
+.avail-bar__dot.is-low { background: var(--teal); box-shadow: 0 0 0 4px var(--teal-tint); }
+.avail-bar__dot.is-high { background: var(--gold); box-shadow: 0 0 0 4px var(--gold-tint); }
+.avail-bar__dot.is-peak { background: var(--coral); box-shadow: 0 0 0 4px var(--coral-tint); }
 .avail-bar .btn { padding: 10px 18px; font-size: .9rem; }
 
 .stepper { display: flex; align-items: center; gap: 0; border: 1px solid var(--line); border-radius: 999px; width: fit-content; overflow: hidden; }

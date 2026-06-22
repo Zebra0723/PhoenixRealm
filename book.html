@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Book Now — Phoenix Realm</title>
   <meta name="description" content="Reserve tickets for Phoenix Realm. Choose adult, child, toddler or family pass tickets, pick a date and see your total. Prototype booking page." />
-  <link rel="icon" type="image/svg+xml" href="assets/logo.svg?v=9" />
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg?v=10" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=9" />
+  <link rel="stylesheet" href="css/styles.css?v=10" />
 </head>
 <body>
 
@@ -17,7 +17,7 @@
   <header class="nav" id="top">
     <div class="container nav__inner">
       <a class="brand" href="index.html" aria-label="Phoenix Realm home">
-        <img class="brand__logo" src="assets/logo.svg?v=9" alt="Phoenix Realm logo" />
+        <img class="brand__logo" src="assets/logo.svg?v=10" alt="Phoenix Realm logo" />
         <span class="brand__text">
           <span class="brand__name">Phoenix Realm</span>
           <span class="brand__tag">Awaken the adventure.</span>
@@ -63,7 +63,7 @@
 
         <div class="grid ticket-grid">
           <!-- Adult -->
-          <article class="ticket reveal" data-ticket data-price="20">
+          <article class="ticket reveal" data-ticket data-type="adult" data-price="20">
             <span class="ticket__status" data-status></span>
             <div class="ticket__name">Adult</div>
             <div class="ticket__age">Ages 18+</div>
@@ -79,7 +79,7 @@
           </article>
 
           <!-- Child -->
-          <article class="ticket reveal" data-ticket data-price="15">
+          <article class="ticket reveal" data-ticket data-type="child" data-price="15">
             <span class="ticket__status" data-status></span>
             <div class="ticket__name">Child</div>
             <div class="ticket__age">Ages 4&ndash;18 years</div>
@@ -95,7 +95,7 @@
           </article>
 
           <!-- Toddler -->
-          <article class="ticket reveal" data-ticket data-price="9">
+          <article class="ticket reveal" data-ticket data-type="toddler" data-price="9">
             <span class="ticket__status" data-status></span>
             <div class="ticket__name">Toddler</div>
             <div class="ticket__age">Ages 0&ndash;4 years</div>
@@ -111,7 +111,7 @@
           </article>
 
           <!-- Family Pass -->
-          <article class="ticket ticket--featured reveal" data-ticket data-price="75">
+          <article class="ticket ticket--featured reveal" data-ticket data-type="family" data-price="75">
             <span class="ticket__badge">Best value</span>
             <span class="ticket__status" data-status></span>
             <div class="ticket__name">Family Pass</div>
@@ -131,10 +131,9 @@
         <!-- Availability bar -->
         <div class="avail-bar reveal">
           <span class="avail-bar__note">
-            <span class="avail-bar__dot" aria-hidden="true"></span>
-            <span data-avail-summary>Checking live availability&hellip;</span>
+            <span class="avail-bar__dot" data-avail-dot aria-hidden="true"></span>
+            <span data-avail-summary>Pick a date to check availability&hellip;</span>
           </span>
-          <button class="btn btn--ghost" type="button" data-refresh-stock>Check availability again</button>
         </div>
 
         <!-- Booking bar -->
@@ -154,7 +153,7 @@
           </div>
         </div>
 
-        <p class="booking-note">Prototype booking page created for presentation purposes. Availability shown is simulated and changes each time you check.</p>
+        <p class="booking-note">Prototype booking page created for presentation purposes. Availability is simulated from the date you choose &mdash; weekends and school holidays get busy, weekdays are quieter.</p>
       </div>
     </section>
   </main>
@@ -181,7 +180,7 @@
       <div class="footer__top">
         <div>
           <a class="brand" href="index.html" aria-label="Phoenix Realm home">
-            <img class="brand__logo" src="assets/logo.svg?v=9" alt="" />
+            <img class="brand__logo" src="assets/logo.svg?v=10" alt="" />
             <span class="brand__text">
               <span class="brand__name">Phoenix Realm</span>
               <span class="brand__tag">Awaken the adventure.</span>
@@ -210,6 +209,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=9"></script>
+  <script src="js/main.js?v=10"></script>
 </body>
 </html>

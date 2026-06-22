@@ -84,13 +84,47 @@
     dialog = { open: open, close: close };
   }
 
-  /* ---- Booking page logic (with random stock) ---- */
+  /* ---- Booking page logic (availability driven by the chosen date) ---- */
   const bookingRoot = document.querySelector("[data-booking]");
   if (bookingRoot) {
     const fmt = new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP" });
     const totalEl = document.querySelector("[data-total]");
     const summaryEl = document.querySelector("[data-avail-summary]");
+    const dotEl = document.querySelector("[data-avail-dot]");
     const cards = Array.prototype.slice.call(document.querySelectorAll("[data-ticket]"));
+    const byType = {};
+    cards.forEach(function (c) { byType[c.dataset.type] = c; });
+
+    /* Stable per-date pseudo-random number so the same date always
+       gives the same availability (no refresh needed). */
+    function seeded(str) {
+      let h = 2166136261 >>> 0;
+      for (let i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul(h, 16777619); }
+      return (h >>> 0) / 4294967296;
+    }
+
+    /* Rough UK school-holiday windows (month*100 + day) */
+    function isSchoolHoliday(d) {
+      const md = (d.getMonth() + 1) * 100 + d.getDate();
+      const inRange = function (a, b) { return md >= a && md <= b; };
+      return inRange(1218, 1231) || inRange(101, 102) ||  // Christmas / New Year
+             inRange(214, 222) ||                          // February half term
+             inRange(401, 415) ||                          // Easter
+             inRange(524, 531) ||                          // May half term
+             inRange(720, 831) ||                          // Summer
+             inRange(1024, 1101);                          // October half term
+    }
+
+    /* How busy is the chosen date? */
+    function demandFor(dateStr) {
+      const d = new Date(dateStr + "T00:00:00");
+      const weekend = d.getDay() === 0 || d.getDay() === 6;
+      const holiday = isSchoolHoliday(d);
+      if (weekend && holiday) return { p: 0.62, level: "peak", label: "Holiday weekend — very busy" };
+      if (holiday)           return { p: 0.45, level: "high", label: "School holidays — busy" };
+      if (weekend)           return { p: 0.42, level: "high", label: "Weekend — popular" };
+      return { p: 0.08, level: "low", label: "Weekday — plenty of availability" };
+    }
 
     function recalc() {
       let total = 0;
@@ -103,7 +137,6 @@
       if (totalEl) totalEl.textContent = fmt.format(total);
     }
 
-    /* Apply a ticket's stock state to its card */
     function applyStock(card) {
       const state = card.dataset.stock;
       const out = state === "out";
@@ -122,27 +155,34 @@
       }
     }
 
-    function updateSummary() {
-      if (!summaryEl) return;
-      const total = cards.length;
-      const avail = cards.filter(function (c) { return c.dataset.stock !== "out"; }).length;
-      if (avail === total) summaryEl.textContent = "Good news — every ticket type is available right now.";
-      else if (avail === 0) summaryEl.textContent = "Everything's sold out at the moment. Try checking again later.";
-      else summaryEl.textContent = avail + " of " + total + " ticket types available — the rest have sold out.";
-    }
-
-    /* Randomly decide availability for each ticket type */
-    function rollStock() {
+    /* Work out availability for the chosen date */
+    function evaluateAvailability(dateStr) {
+      const demand = demandFor(dateStr);
       cards.forEach(function (card) {
-        const r = Math.random();
-        card.dataset.stock = r < 0.40 ? "out" : (r < 0.65 ? "low" : "in");
+        const r = seeded(dateStr + ":" + card.dataset.type);
+        card.dataset.stock = r < demand.p ? "out" : (r < demand.p + 0.22 ? "low" : "in");
       });
-      // Don't leave the whole park sold out
-      if (cards.every(function (c) { return c.dataset.stock === "out"; })) {
-        cards[Math.floor(Math.random() * cards.length)].dataset.stock = "in";
+      // Family Pass needs 2 adults + 2 children: it can only be available
+      // if both Adult and Child tickets are available.
+      if (byType.family && ((byType.adult && byType.adult.dataset.stock === "out") ||
+                            (byType.child && byType.child.dataset.stock === "out"))) {
+        byType.family.dataset.stock = "out";
       }
       cards.forEach(applyStock);
-      updateSummary();
+
+      // Summary + status dot
+      const avail = cards.filter(function (c) { return c.dataset.stock !== "out"; }).length;
+      if (summaryEl) {
+        let tail;
+        if (avail === cards.length) tail = "all ticket types available.";
+        else if (avail === 0) tail = "everything's sold out for this date.";
+        else tail = avail + " of " + cards.length + " ticket types available.";
+        summaryEl.textContent = demand.label + " — " + tail;
+      }
+      if (dotEl) {
+        dotEl.classList.remove("is-low", "is-high", "is-peak");
+        dotEl.classList.add(demand.level === "low" ? "is-low" : (demand.level === "peak" ? "is-peak" : "is-high"));
+      }
       recalc();
     }
 
@@ -162,22 +202,6 @@
       inc.addEventListener("click", function () { input.value = (parseInt(input.value, 10) || 0) + 1; clamp(); recalc(); });
       input.addEventListener("input", function () { clamp(); recalc(); });
     });
-
-    /* Re-roll availability on demand */
-    const refreshBtn = document.querySelector("[data-refresh-stock]");
-    if (refreshBtn) {
-      refreshBtn.addEventListener("click", function () {
-        refreshBtn.disabled = true;
-        const original = refreshBtn.textContent;
-        refreshBtn.textContent = "Updating…";
-        if (summaryEl) summaryEl.textContent = "Checking live availability…";
-        setTimeout(function () {
-          rollStock();
-          refreshBtn.disabled = false;
-          refreshBtn.textContent = original;
-        }, 550);
-      });
-    }
 
     /* Checkout */
     document.querySelectorAll("[data-checkout]").forEach(function (btn) {
@@ -201,15 +225,18 @@
       });
     });
 
-    /* Date selector: default + minimum = today */
+    /* Date selector: default + minimum = today; re-evaluate on change */
     const dateInput = document.querySelector("[data-date]");
+    const today = new Date().toISOString().split("T")[0];
     if (dateInput) {
-      const today = new Date().toISOString().split("T")[0];
       dateInput.min = today;
       if (!dateInput.value) dateInput.value = today;
+      dateInput.addEventListener("change", function () {
+        evaluateAvailability(dateInput.value || today);
+      });
     }
 
-    rollStock();
+    evaluateAvailability((dateInput && dateInput.value) || today);
   }
 
   /* ---- Footer year ---- */
