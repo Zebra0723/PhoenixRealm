@@ -135,7 +135,7 @@
     function rollStock() {
       cards.forEach(function (card) {
         const r = Math.random();
-        card.dataset.stock = r < 0.22 ? "out" : (r < 0.40 ? "low" : "in");
+        card.dataset.stock = r < 0.40 ? "out" : (r < 0.65 ? "low" : "in");
       });
       // Don't leave the whole park sold out
       if (cards.every(function (c) { return c.dataset.stock === "out"; })) {
