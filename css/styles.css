@@ -530,6 +530,15 @@ h1,h2,h3,h4 {
 .faq__body { padding: 0 24px 22px; color: var(--ink-soft); }
 .faq__body p { margin: 0; }
 
+/* ---------- Opening hours ---------- */
+.hours { max-width: 660px; margin-inline: auto; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); padding: 10px 30px 26px; }
+.hours__list { display: grid; }
+.hours__list li { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 18px 2px; border-bottom: 1px solid var(--line); }
+.hours__list li:last-child { border-bottom: none; }
+.hours__day { font-family: var(--font-display); font-weight: 600; color: var(--ink); }
+.hours__time { font-family: var(--font-display); font-weight: 600; color: var(--teal); font-size: 1.05rem; }
+.hours__note { margin-top: 16px; font-size: .9rem; color: var(--ink-muted); }
+
 /* ---------- Footer ---------- */
 .footer { background: var(--ink); color: #C9D1D9; padding: 64px 0 32px; }
 .footer__top { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,.1); }
