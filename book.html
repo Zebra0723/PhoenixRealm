@@ -64,6 +64,7 @@
         <div class="grid ticket-grid">
           <!-- Adult -->
           <article class="ticket reveal" data-ticket data-price="20">
+            <span class="ticket__status" data-status></span>
             <div class="ticket__name">Adult</div>
             <div class="ticket__age">Ages 18+</div>
             <div class="ticket__price"><b>&pound;20</b> <span>per person</span></div>
@@ -79,6 +80,7 @@
 
           <!-- Child -->
           <article class="ticket reveal" data-ticket data-price="15">
+            <span class="ticket__status" data-status></span>
             <div class="ticket__name">Child</div>
             <div class="ticket__age">Ages 4&ndash;18 years</div>
             <div class="ticket__price"><b>&pound;15</b> <span>per child</span></div>
@@ -94,6 +96,7 @@
 
           <!-- Toddler -->
           <article class="ticket reveal" data-ticket data-price="9">
+            <span class="ticket__status" data-status></span>
             <div class="ticket__name">Toddler</div>
             <div class="ticket__age">Ages 0&ndash;4 years</div>
             <div class="ticket__price"><b>&pound;9</b> <span>per toddler</span></div>
@@ -110,6 +113,7 @@
           <!-- Family Pass -->
           <article class="ticket ticket--featured reveal" data-ticket data-price="75">
             <span class="ticket__badge">Best value</span>
+            <span class="ticket__status" data-status></span>
             <div class="ticket__name">Family Pass</div>
             <div class="ticket__age">2 adults (18+) and 2 children (4&ndash;18 years)</div>
             <div class="ticket__price"><b>&pound;75</b> <span>per pass</span></div>
@@ -124,8 +128,17 @@
           </article>
         </div>
 
+        <!-- Availability bar -->
+        <div class="avail-bar reveal">
+          <span class="avail-bar__note">
+            <span class="avail-bar__dot" aria-hidden="true"></span>
+            <span data-avail-summary>Checking live availability&hellip;</span>
+          </span>
+          <button class="btn btn--ghost" type="button" data-refresh-stock>Check availability again</button>
+        </div>
+
         <!-- Booking bar -->
-        <div class="booking-bar reveal" style="margin-top:32px;">
+        <div class="booking-bar reveal" style="margin-top:24px;">
           <div class="field">
             <label for="visit-date">Select your visit date</label>
             <input type="date" id="visit-date" data-date />
@@ -141,7 +154,7 @@
           </div>
         </div>
 
-        <p class="booking-note">Prototype booking page created for presentation purposes.</p>
+        <p class="booking-note">Prototype booking page created for presentation purposes. Availability shown is simulated and changes each time you check.</p>
       </div>
     </section>
   </main>
@@ -153,11 +166,11 @@
       <button class="modal__close-x" type="button" data-modal-close aria-label="Close dialog">
         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
       </button>
-      <div class="modal__icon" aria-hidden="true">
+      <div class="modal__icon" data-modal-icon aria-hidden="true">
         <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.01"/></svg>
       </div>
-      <h3 id="modal-title">Booking unavailable</h3>
-      <p>Sorry, this item is not currently available for purchase. Please try again later.</p>
+      <h3 id="modal-title" data-modal-title>Booking unavailable</h3>
+      <p data-modal-message>Sorry, this item is not currently available for purchase. Please try again later.</p>
       <button class="btn btn--teal" type="button" data-modal-close>Close</button>
     </div>
   </div>
