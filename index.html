@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phoenix Realm — Three Realms. One Myth.</title>
+  <meta name="description" content="Phoenix Realm is a mythology-themed park with three immersive realms inspired by legendary creatures and ancient myths. Three Realms. One Myth." />
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ============ NAVBAR ============ -->
+  <header class="nav" id="top">
+    <div class="container nav__inner">
+      <a class="brand" href="index.html" aria-label="Phoenix Realm home">
+        <img class="brand__logo" src="assets/logo.svg" alt="Phoenix Realm logo" />
+        <span class="brand__text">
+          <span class="brand__name">Phoenix Realm</span>
+          <span class="brand__tag">Three Realms. One Myth.</span>
+        </span>
+      </a>
+      <nav class="nav__actions" aria-label="Primary">
+        <ul class="nav__links">
+          <li><a class="nav__link" href="index.html">Home</a></li>
+          <li><a class="nav__link" href="realms.html">Explore Realms</a></li>
+          <li><a class="nav__link" href="plan.html">Plan Your Visit</a></li>
+          <li><a class="nav__link" href="book.html">Book Now</a></li>
+          <li><a class="btn nav__cta" href="book.html">Book Now</a></li>
+        </ul>
+        <button class="nav__toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav"><span></span></button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero__bg" aria-hidden="true">
+        <svg viewBox="0 0 1440 760" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#FBF8F4"/>
+              <stop offset="1" stop-color="#F3EEE6"/>
+            </linearGradient>
+            <linearGradient id="flow1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#E6F2F1"/>
+              <stop offset="1" stop-color="#FBF2DC"/>
+            </linearGradient>
+          </defs>
+          <rect width="1440" height="760" fill="url(#sky)"/>
+          <!-- flowing shapes -->
+          <path d="M-50 560 C260 470 420 640 720 560 C1010 485 1180 610 1500 520 L1500 800 L-50 800 Z" fill="url(#flow1)" opacity="0.7"/>
+          <path d="M-50 640 C300 580 500 700 820 620 C1120 545 1260 660 1500 600 L1500 800 L-50 800 Z" fill="#E6F2F1" opacity="0.55"/>
+          <!-- ferris wheel silhouette (clean line) -->
+          <g transform="translate(1140 300)" stroke="#1F8A86" stroke-opacity="0.5" fill="none" stroke-width="2.4">
+            <circle cx="0" cy="0" r="150"/>
+            <circle cx="0" cy="0" r="150" stroke-dasharray="1 26" stroke-width="6"/>
+            <circle cx="0" cy="0" r="16" fill="#E2BB5C" stroke="none"/>
+            <g>
+              <line x1="0" y1="0" x2="0" y2="-150"/><line x1="0" y1="0" x2="0" y2="150"/>
+              <line x1="0" y1="0" x2="-150" y2="0"/><line x1="0" y1="0" x2="150" y2="0"/>
+              <line x1="0" y1="0" x2="106" y2="-106"/><line x1="0" y1="0" x2="-106" y2="-106"/>
+              <line x1="0" y1="0" x2="106" y2="106"/><line x1="0" y1="0" x2="-106" y2="106"/>
+            </g>
+            <g fill="#F0D38A" stroke="#E2BB5C" stroke-width="1.6">
+              <circle cx="0" cy="-150" r="10"/><circle cx="0" cy="150" r="10"/>
+              <circle cx="-150" cy="0" r="10"/><circle cx="150" cy="0" r="10"/>
+              <circle cx="106" cy="-106" r="10"/><circle cx="-106" cy="-106" r="10"/>
+              <circle cx="106" cy="106" r="10"/><circle cx="-106" cy="106" r="10"/>
+            </g>
+            <line x1="-70" y1="150" x2="0" y2="6" stroke-width="3"/>
+            <line x1="70" y1="150" x2="0" y2="6" stroke-width="3"/>
+          </g>
+          <!-- faint coaster line -->
+          <path d="M-40 470 C160 360 240 520 420 430 C560 360 600 500 760 430" fill="none" stroke="#D9483B" stroke-opacity="0.28" stroke-width="2.6" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <div class="container hero__inner">
+        <div class="hero__copy reveal">
+          <img class="hero__logo" src="assets/logo.svg" alt="Phoenix Realm" />
+          <h1>Phoenix Realm</h1>
+          <p class="hero__slogan">Three Realms. One Myth.</p>
+          <p class="hero__intro">Step into Phoenix Realm, a mythology-themed park where families, explorers and thrill-seekers can discover three immersive realms inspired by legendary creatures and ancient myths.</p>
+          <div class="hero__actions">
+            <a class="btn btn--lg" href="book.html">Book Now <span class="arrow" aria-hidden="true">&rarr;</span></a>
+            <a class="btn btn--ghost btn--lg" href="realms.html">Explore the Realms</a>
+          </div>
+        </div>
+
+        <div class="hero__art reveal">
+          <div class="hero__art-card">
+            <svg viewBox="0 0 480 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Stylised illustration of the Phoenix Realm park at dusk">
+              <defs>
+                <linearGradient id="hg" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#FDFBF7"/>
+                  <stop offset="0.55" stop-color="#FBF2DC"/>
+                  <stop offset="1" stop-color="#F6E9CF"/>
+                </linearGradient>
+                <linearGradient id="hill" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#36B3AC"/>
+                  <stop offset="1" stop-color="#1F8A86"/>
+                </linearGradient>
+                <linearGradient id="hill2" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#F07A5E"/>
+                  <stop offset="1" stop-color="#D9483B"/>
+                </linearGradient>
+              </defs>
+              <rect width="480" height="600" fill="url(#hg)"/>
+              <circle cx="330" cy="150" r="64" fill="#F0D38A" opacity="0.55"/>
+              <!-- ferris wheel -->
+              <g transform="translate(150 230)" stroke="#1E2630" stroke-opacity="0.62" fill="none" stroke-width="2">
+                <circle r="92"/>
+                <g>
+                  <line x2="0" y2="-92"/><line x2="0" y2="92"/><line x1="-92" x2="92"/>
+                  <line x1="-65" y1="-65" x2="65" y2="65"/><line x1="65" y1="-65" x2="-65" y2="65"/>
+                </g>
+                <g fill="#D9483B" stroke="none">
+                  <circle cy="-92" r="7"/><circle cy="92" r="7"/><circle cx="-92" r="7"/><circle cx="92" r="7"/>
+                  <circle cx="-65" cy="-65" r="7"/><circle cx="65" cy="65" r="7"/><circle cx="65" cy="-65" r="7"/><circle cx="-65" cy="65" r="7"/>
+                </g>
+                <circle r="9" fill="#E2BB5C" stroke="none"/>
+                <line x1="-46" y1="92" y2="0" stroke-width="2.4"/><line x1="46" y1="92" y2="0" stroke-width="2.4"/>
+              </g>
+              <!-- coaster track -->
+              <path d="M20 360 C90 300 130 410 200 350 C270 292 320 400 400 330 C440 296 460 350 470 330" fill="none" stroke="#1F8A86" stroke-width="3" stroke-linecap="round"/>
+              <g stroke="#1F8A86" stroke-width="2" opacity="0.5">
+                <line x1="60" y1="360" x2="60" y2="430"/><line x1="160" y1="372" x2="160" y2="430"/>
+                <line x1="260" y1="368" x2="260" y2="430"/><line x1="360" y1="356" x2="360" y2="430"/>
+              </g>
+              <!-- hills -->
+              <path d="M0 470 C120 430 200 480 300 450 C380 426 440 460 480 448 L480 600 L0 600 Z" fill="url(#hill)"/>
+              <path d="M0 520 C140 486 250 540 360 506 C420 488 460 512 480 506 L480 600 L0 600 Z" fill="url(#hill2)" opacity="0.92"/>
+              <!-- pennant flags -->
+              <g stroke="#1E2630" stroke-opacity="0.4" stroke-width="1.4" fill="none">
+                <path d="M40 470 C160 452 320 452 440 470"/>
+              </g>
+              <g fill="#E2BB5C">
+                <path d="M120 461 l12 0 -6 11 z"/><path d="M200 456 l12 0 -6 11 z"/><path d="M280 456 l12 0 -6 11 z"/><path d="M360 461 l12 0 -6 11 z"/>
+              </g>
+            </svg>
+          </div>
+          <div class="hero__stats" aria-hidden="true">
+            <div class="hero__stat"><b>3</b><span>Realms</span></div>
+            <div class="hero__stat"><b>All</b><span>Ages</span></div>
+            <div class="hero__stat"><b>1</b><span>Myth</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ INTRO / VALUE ============ -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head section-head--center reveal">
+          <span class="eyebrow eyebrow--center">One park, three worlds</span>
+          <h2>A myth that unfolds across every realm</h2>
+          <p>Phoenix Realm weaves a single legend through three distinct lands &mdash; each with its own atmosphere, attractions and audience. Wander between them in a day, or return for the realm that calls you back.</p>
+        </div>
+        <div class="grid grid--3">
+          <article class="card feature reveal">
+            <div class="chip chip--gold" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 3l2.5 5 5.5.8-4 3.9.9 5.5L12 16.6 7.1 18.2 8 12.7 4 8.8 9.5 8 12 3z"/></svg>
+            </div>
+            <h3>Shared experiences</h3>
+            <p>Designed for families, explorers and thrill-seekers alike, so every group finds its own kind of adventure.</p>
+          </article>
+          <article class="card feature reveal">
+            <div class="chip" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 14c2-3 4.5-4.5 8-4.5S18 11 20 14"/><path d="M3 18c2.5-2 5.5-3 9-3s6.5 1 9 3"/><circle cx="12" cy="6" r="2.4"/></svg>
+            </div>
+            <h3>Immersive design</h3>
+            <p>Every realm is built around its own mythology, from welcoming and bright to refreshing and deeply dramatic.</p>
+          </article>
+          <article class="card feature reveal">
+            <div class="chip chip--coral" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 21s-7-4.4-7-10a7 7 0 0114 0c0 5.6-7 10-7 10z"/><circle cx="12" cy="11" r="2.5"/></svg>
+            </div>
+            <h3>Easy to plan</h3>
+            <p>Amenities, dining and first aid are spread across the park, so a full day stays comfortable from open to close.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ REALM PREVIEW ============ -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Explore the realms</span>
+          <h2>Three immersive worlds</h2>
+          <p>Each realm carries a different mood and a different myth. Preview them here, then dive deeper on the Explore Realms page.</p>
+        </div>
+        <div class="grid grid--3">
+          <!-- Mythos -->
+          <article class="realm-card reveal">
+            <div class="realm-card__art">
+              <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect width="400" height="250" fill="#FBF2DC"/>
+                <circle cx="320" cy="70" r="44" fill="#F0D38A" opacity="0.6"/>
+                <g transform="translate(110 120)" stroke="#B98B22" fill="none" stroke-width="2.4">
+                  <circle r="58"/><line y2="-58"/><line y2="58"/><line x1="-58"/><line x2="58"/>
+                  <line x1="-41" y1="-41" x2="41" y2="41"/><line x1="41" y1="-41" x2="-41" y2="41"/>
+                  <circle r="6" fill="#E2BB5C" stroke="none"/>
+                </g>
+                <path d="M0 200 C100 175 160 205 230 188 C300 172 360 196 400 186 L400 250 L0 250 Z" fill="#E2BB5C" opacity="0.5"/>
+                <path d="M0 220 C120 200 220 226 320 208 C360 200 384 214 400 210 L400 250 L0 250 Z" fill="#E2BB5C" opacity="0.8"/>
+              </svg>
+            </div>
+            <div class="realm-card__body">
+              <span class="realm-card__tag realm-card__tag--gold">Families &amp; younger visitors</span>
+              <h3>Mythos Family Realm</h3>
+              <p>Bright, welcoming and adventurous &mdash; built around shared experiences, family rides and prize games.</p>
+              <a class="realm-card__link" href="realms.html#mythos">Discover the realm <span class="arrow" aria-hidden="true">&rarr;</span></a>
+            </div>
+          </article>
+          <!-- Hydro -->
+          <article class="realm-card reveal">
+            <div class="realm-card__art">
+              <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect width="400" height="250" fill="#E6F2F1"/>
+                <g transform="translate(200 96)" stroke="#1F8A86" fill="none" stroke-width="2.4" opacity="0.85">
+                  <path d="M-70 0 C-70 -34 -38 -54 0 -54 C38 -54 70 -34 70 0"/>
+                  <path d="M-46 14 C-46 -10 -22 -28 0 -28 C22 -28 46 -10 46 14"/>
+                  <circle cy="6" r="14" fill="#36B3AC" stroke="none"/>
+                </g>
+                <g fill="none" stroke="#36B3AC" stroke-width="2.6" stroke-linecap="round" opacity="0.8">
+                  <path d="M-10 150 C40 135 70 165 120 150 C170 135 200 165 250 150"/>
+                  <path d="M-10 178 C40 163 70 193 120 178 C170 163 200 193 250 178"/>
+                </g>
+                <path d="M0 196 C90 178 150 208 230 192 C300 178 360 200 400 192 L400 250 L0 250 Z" fill="#36B3AC" opacity="0.55"/>
+                <path d="M0 216 C110 198 210 224 320 206 C360 200 384 212 400 208 L400 250 L0 250 Z" fill="#1F8A86" opacity="0.85"/>
+              </svg>
+            </div>
+            <div class="realm-card__body">
+              <span class="realm-card__tag">Water enthusiasts &amp; families</span>
+              <h3>HydroRealm</h3>
+              <p>Mysterious, refreshing and aquatic &mdash; water rides, splash zones and kraken-inspired adventures.</p>
+              <a class="realm-card__link" href="realms.html#hydro">Discover the realm <span class="arrow" aria-hidden="true">&rarr;</span></a>
+            </div>
+          </article>
+          <!-- Abyss -->
+          <article class="realm-card reveal">
+            <div class="realm-card__art">
+              <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect width="400" height="250" fill="#2A2230"/>
+                <circle cx="300" cy="64" r="40" fill="#D9483B" opacity="0.5"/>
+                <path d="M40 40 L40 210 M80 70 L80 210" stroke="#F07A5E" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+                <path d="M20 200 C70 120 90 170 130 110 C160 66 190 150 230 96 C270 50 300 150 360 90" fill="none" stroke="#F07A5E" stroke-width="3" stroke-linecap="round"/>
+                <g stroke="#D9483B" stroke-width="2" opacity="0.55">
+                  <line x1="130" y1="110" x2="130" y2="210"/><line x1="230" y1="96" x2="230" y2="210"/><line x1="300" y1="118" x2="300" y2="210"/>
+                </g>
+                <path d="M0 206 C100 186 170 214 250 198 C320 184 370 204 400 198 L400 250 L0 250 Z" fill="#D9483B" opacity="0.7"/>
+              </svg>
+            </div>
+            <div class="realm-card__body">
+              <span class="realm-card__tag realm-card__tag--coral">Thrill-seekers aged 12+</span>
+              <h3>Adolescent Abyss</h3>
+              <p>Darker, intense and dramatic &mdash; high-speed coasters, tower rides and extreme attractions.</p>
+              <a class="realm-card__link" href="realms.html#abyss">Discover the realm <span class="arrow" aria-hidden="true">&rarr;</span></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA BAND ============ -->
+    <section class="section">
+      <div class="container">
+        <div class="cta-band reveal">
+          <h2>Ready to step into the myth?</h2>
+          <p>Reserve your day across all three realms, or start by exploring what each world has in store.</p>
+          <div class="actions">
+            <a class="btn btn--lg" href="book.html">Book Now <span class="arrow" aria-hidden="true">&rarr;</span></a>
+            <a class="btn btn--ghost btn--lg" href="plan.html">Plan Your Visit</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div>
+          <a class="brand" href="index.html" aria-label="Phoenix Realm home">
+            <img class="brand__logo" src="assets/logo.svg" alt="" />
+            <span class="brand__text">
+              <span class="brand__name">Phoenix Realm</span>
+              <span class="brand__tag">Three Realms. One Myth.</span>
+            </span>
+          </a>
+          <p class="footer__about">A mythology-themed park with three immersive realms inspired by legendary creatures and ancient myths. Explore, plan and discover your day.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="realms.html">Explore Realms</a></li>
+            <li><a href="plan.html">Plan Your Visit</a></li>
+            <li><a href="book.html">Book Now</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Visit</h4>
+          <p>Open daily, all year round.<br />See Plan Your Visit for facilities, dining and guest comfort across the park.</p>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; <span data-year>2026</span> Phoenix Realm. Prototype site created for presentation purposes.</p>
+        <p class="slogan">Three Realms. One Myth.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

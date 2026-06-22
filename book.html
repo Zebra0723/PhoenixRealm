@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Now — Phoenix Realm</title>
+  <meta name="description" content="Reserve tickets for Phoenix Realm. Choose adult, child, toddler or family pass tickets, pick a date and see your total. Prototype booking page." />
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ============ NAVBAR ============ -->
+  <header class="nav" id="top">
+    <div class="container nav__inner">
+      <a class="brand" href="index.html" aria-label="Phoenix Realm home">
+        <img class="brand__logo" src="assets/logo.svg" alt="Phoenix Realm logo" />
+        <span class="brand__text">
+          <span class="brand__name">Phoenix Realm</span>
+          <span class="brand__tag">Three Realms. One Myth.</span>
+        </span>
+      </a>
+      <nav class="nav__actions" aria-label="Primary">
+        <ul class="nav__links">
+          <li><a class="nav__link" href="index.html">Home</a></li>
+          <li><a class="nav__link" href="realms.html">Explore Realms</a></li>
+          <li><a class="nav__link" href="plan.html">Plan Your Visit</a></li>
+          <li><a class="nav__link" href="book.html">Book Now</a></li>
+          <li><a class="btn nav__cta" href="book.html">Book Now</a></li>
+        </ul>
+        <button class="nav__toggle" type="button" aria-label="Toggle navigation" aria-expanded="false"><span></span></button>
+      </nav>
+    </div>
+  </header>
+
+  <main data-booking>
+    <!-- ============ PAGE HEADER ============ -->
+    <section class="pagehead">
+      <div class="pagehead__bg" aria-hidden="true">
+        <svg viewBox="0 0 1440 360" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+          <path d="M-40 250 C260 200 460 320 760 250 C1040 186 1220 300 1500 230 L1500 400 L-40 400 Z" fill="#FBEBE7" opacity="0.7"/>
+          <path d="M-40 320 C300 270 520 360 820 300 C1080 250 1260 330 1500 300 L1500 400 L-40 400 Z" fill="#FBF2DC" opacity="0.7"/>
+        </svg>
+      </div>
+      <div class="container pagehead__inner reveal">
+        <span class="eyebrow">Book now</span>
+        <h1>Choose your tickets</h1>
+        <p>Select your tickets, pick a date and review your total. One ticket gives you access to all three realms for the day.</p>
+      </div>
+    </section>
+
+    <!-- ============ TICKETS ============ -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Day tickets</span>
+          <h2>One pass, all three realms</h2>
+          <p>Every ticket includes entry to Mythos Family Realm, HydroRealm and Adolescent Abyss for a full day.</p>
+        </div>
+
+        <div class="grid ticket-grid">
+          <!-- Adult -->
+          <article class="ticket reveal" data-ticket data-price="20">
+            <div class="ticket__name">Adult</div>
+            <div class="ticket__age">Ages 18+</div>
+            <div class="ticket__price"><b>&pound;20</b> <span>per person</span></div>
+            <div class="ticket__qty">
+              <span class="ticket__qty-label">Quantity</span>
+              <div class="stepper">
+                <button type="button" data-dec aria-label="Decrease adult tickets">&minus;</button>
+                <input type="number" data-qty value="0" min="0" max="20" inputmode="numeric" aria-label="Adult ticket quantity" />
+                <button type="button" data-inc aria-label="Increase adult tickets">&plus;</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Child -->
+          <article class="ticket reveal" data-ticket data-price="15">
+            <div class="ticket__name">Child</div>
+            <div class="ticket__age">Ages 4&ndash;18 years</div>
+            <div class="ticket__price"><b>&pound;15</b> <span>per child</span></div>
+            <div class="ticket__qty">
+              <span class="ticket__qty-label">Quantity</span>
+              <div class="stepper">
+                <button type="button" data-dec aria-label="Decrease child tickets">&minus;</button>
+                <input type="number" data-qty value="0" min="0" max="20" inputmode="numeric" aria-label="Child ticket quantity" />
+                <button type="button" data-inc aria-label="Increase child tickets">&plus;</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Toddler -->
+          <article class="ticket reveal" data-ticket data-price="9">
+            <div class="ticket__name">Toddler</div>
+            <div class="ticket__age">Ages 0&ndash;4 years</div>
+            <div class="ticket__price"><b>&pound;9</b> <span>per toddler</span></div>
+            <div class="ticket__qty">
+              <span class="ticket__qty-label">Quantity</span>
+              <div class="stepper">
+                <button type="button" data-dec aria-label="Decrease toddler tickets">&minus;</button>
+                <input type="number" data-qty value="0" min="0" max="20" inputmode="numeric" aria-label="Toddler ticket quantity" />
+                <button type="button" data-inc aria-label="Increase toddler tickets">&plus;</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Family Pass -->
+          <article class="ticket ticket--featured reveal" data-ticket data-price="75">
+            <span class="ticket__badge">Best value</span>
+            <div class="ticket__name">Family Pass</div>
+            <div class="ticket__age">2 adults (18+) and 2 children (4&ndash;18 years)</div>
+            <div class="ticket__price"><b>&pound;75</b> <span>per pass</span></div>
+            <div class="ticket__qty">
+              <span class="ticket__qty-label">Quantity</span>
+              <div class="stepper">
+                <button type="button" data-dec aria-label="Decrease family passes">&minus;</button>
+                <input type="number" data-qty value="0" min="0" max="20" inputmode="numeric" aria-label="Family pass quantity" />
+                <button type="button" data-inc aria-label="Increase family passes">&plus;</button>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Booking bar -->
+        <div class="booking-bar reveal" style="margin-top:32px;">
+          <div class="field">
+            <label for="visit-date">Select your visit date</label>
+            <input type="date" id="visit-date" data-date />
+          </div>
+          <div class="booking-summary" style="display:flex; align-items:flex-end; gap:28px; flex-wrap:wrap;">
+            <div class="booking-total">
+              <span>Total</span>
+              <b data-total>&pound;0.00</b>
+            </div>
+            <div class="booking-actions">
+              <button class="btn btn--lg" type="button" data-checkout>Continue to Checkout <span class="arrow" aria-hidden="true">&rarr;</span></button>
+            </div>
+          </div>
+        </div>
+
+        <p class="booking-note">Prototype booking page created for presentation purposes.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ MODAL ============ -->
+  <div class="modal" data-modal role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+    <div class="modal__overlay" data-modal-close></div>
+    <div class="modal__box">
+      <button class="modal__close-x" type="button" data-modal-close aria-label="Close dialog">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <div class="modal__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.01"/></svg>
+      </div>
+      <h3 id="modal-title">Booking unavailable</h3>
+      <p>Sorry, this item is not currently available for purchase. Please try again later.</p>
+      <button class="btn btn--teal" type="button" data-modal-close>Close</button>
+    </div>
+  </div>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div>
+          <a class="brand" href="index.html" aria-label="Phoenix Realm home">
+            <img class="brand__logo" src="assets/logo.svg" alt="" />
+            <span class="brand__text">
+              <span class="brand__name">Phoenix Realm</span>
+              <span class="brand__tag">Three Realms. One Myth.</span>
+            </span>
+          </a>
+          <p class="footer__about">A mythology-themed park with three immersive realms inspired by legendary creatures and ancient myths. Explore, plan and discover your day.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="realms.html">Explore Realms</a></li>
+            <li><a href="plan.html">Plan Your Visit</a></li>
+            <li><a href="book.html">Book Now</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Visit</h4>
+          <p>Open daily, all year round.<br />See Plan Your Visit for facilities, dining and guest comfort across the park.</p>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; <span data-year>2026</span> Phoenix Realm. Prototype site created for presentation purposes.</p>
+        <p class="slogan">Three Realms. One Myth.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

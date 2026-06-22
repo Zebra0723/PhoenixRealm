@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plan Your Visit — Phoenix Realm</title>
+  <meta name="description" content="Plan your visit to Phoenix Realm: facilities, food and dining, a park mini-map and guest comfort details across all three realms." />
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ============ NAVBAR ============ -->
+  <header class="nav" id="top">
+    <div class="container nav__inner">
+      <a class="brand" href="index.html" aria-label="Phoenix Realm home">
+        <img class="brand__logo" src="assets/logo.svg" alt="Phoenix Realm logo" />
+        <span class="brand__text">
+          <span class="brand__name">Phoenix Realm</span>
+          <span class="brand__tag">Three Realms. One Myth.</span>
+        </span>
+      </a>
+      <nav class="nav__actions" aria-label="Primary">
+        <ul class="nav__links">
+          <li><a class="nav__link" href="index.html">Home</a></li>
+          <li><a class="nav__link" href="realms.html">Explore Realms</a></li>
+          <li><a class="nav__link" href="plan.html">Plan Your Visit</a></li>
+          <li><a class="nav__link" href="book.html">Book Now</a></li>
+          <li><a class="btn nav__cta" href="book.html">Book Now</a></li>
+        </ul>
+        <button class="nav__toggle" type="button" aria-label="Toggle navigation" aria-expanded="false"><span></span></button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ PAGE HEADER ============ -->
+    <section class="pagehead">
+      <div class="pagehead__bg" aria-hidden="true">
+        <svg viewBox="0 0 1440 360" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+          <path d="M-40 250 C260 200 460 320 760 250 C1040 186 1220 300 1500 230 L1500 400 L-40 400 Z" fill="#FBF2DC" opacity="0.7"/>
+          <path d="M-40 320 C300 270 520 360 820 300 C1080 250 1260 330 1500 300 L1500 400 L-40 400 Z" fill="#E6F2F1" opacity="0.7"/>
+        </svg>
+      </div>
+      <div class="container pagehead__inner reveal">
+        <span class="eyebrow">Plan your visit</span>
+        <h1>Everything you need for a smooth day</h1>
+        <p>Phoenix Realm is built to keep a full day comfortable. Facilities, dining and first aid are spread evenly across all three realms, so you can stay close to the attractions you came for.</p>
+      </div>
+    </section>
+
+    <!-- ============ FACILITIES ============ -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Facilities across the park</span>
+          <h2>Amenities, everywhere you need them</h2>
+          <p>Practical facilities are distributed throughout the park for convenience, with dedicated provision in each of the three realms.</p>
+        </div>
+        <div class="stat-strip reveal">
+          <div class="stat-box"><b>20</b><span>Benches across the park</span></div>
+          <div class="stat-box"><b>10</b><span>Bins placed near food areas</span></div>
+          <div class="stat-box"><b>3</b><span>First aid blocks, one per realm</span></div>
+          <div class="stat-box"><b>3</b><span>Toilet blocks, one per realm</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MINI MAP ============ -->
+    <section class="section section--alt section--tight">
+      <div class="container">
+        <div class="grid grid--2" style="align-items:center; gap:48px;">
+          <div class="reveal">
+            <span class="eyebrow">Park overview</span>
+            <h2 style="font-size:clamp(1.8rem,3.4vw,2.5rem); margin:14px 0 12px;">A simple map of the three realms</h2>
+            <p class="lead" style="margin-bottom:18px;">Each realm sits in its own zone, with its own first aid block and toilets. Amenities and dining are spread so you can find what you need without leaving your chosen realm.</p>
+            <div class="map-legend">
+              <div><span class="swatch" style="background:#E2BB5C"></span>Mythos Family Realm</div>
+              <div><span class="swatch" style="background:#1F8A86"></span>HydroRealm</div>
+              <div><span class="swatch" style="background:#D9483B"></span>Adolescent Abyss</div>
+              <div><span class="swatch" style="background:#ffffff;border:1.5px solid #1E2630"></span>First aid &amp; toilets</div>
+            </div>
+          </div>
+          <div class="map reveal">
+            <svg viewBox="0 0 560 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Simplified map of Phoenix Realm showing three realm zones, pathways, first aid and toilet locations">
+              <rect width="560" height="420" rx="18" fill="#FBF8F4"/>
+              <!-- paths -->
+              <path d="M280 40 L280 380 M70 210 L490 210" fill="none" stroke="#E8E2D9" stroke-width="20" stroke-linecap="round"/>
+              <path d="M280 40 L280 380 M70 210 L490 210" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" stroke-dasharray="2 16"/>
+
+              <!-- Mythos zone (top-left) -->
+              <g>
+                <rect x="40" y="40" width="210" height="150" rx="16" fill="#FBF2DC" stroke="#E2BB5C" stroke-width="1.5"/>
+                <text x="60" y="70" font-family="Sora, sans-serif" font-size="15" font-weight="700" fill="#9a7212">Mythos Family Realm</text>
+                <g transform="translate(150 130)" stroke="#B98B22" fill="none" stroke-width="2.4">
+                  <circle r="30"/><line y2="-30"/><line y2="30"/><line x1="-30"/><line x2="30"/><circle r="4" fill="#E2BB5C" stroke="none"/>
+                </g>
+              </g>
+
+              <!-- HydroRealm zone (top-right) -->
+              <g>
+                <rect x="310" y="40" width="210" height="150" rx="16" fill="#E6F2F1" stroke="#1F8A86" stroke-width="1.5"/>
+                <text x="330" y="70" font-family="Sora, sans-serif" font-size="15" font-weight="700" fill="#1F8A86">HydroRealm</text>
+                <g transform="translate(420 130)" stroke="#1F8A86" fill="none" stroke-width="2.4">
+                  <path d="M-28 6 C-28 -16 -14 -28 0 -28 C14 -28 28 -16 28 6"/>
+                  <path d="M-26 18 C-18 8 -8 18 0 8 C8 18 18 8 26 18"/>
+                </g>
+              </g>
+
+              <!-- Abyss zone (bottom, spanning) -->
+              <g>
+                <rect x="40" y="230" width="480" height="150" rx="16" fill="#2C2333"/>
+                <text x="60" y="262" font-family="Sora, sans-serif" font-size="15" font-weight="700" fill="#F0D38A">Adolescent Abyss</text>
+                <path d="M70 350 C120 280 150 340 200 290 C250 244 300 340 360 290 C410 250 460 340 500 300" fill="none" stroke="#F07A5E" stroke-width="3" stroke-linecap="round"/>
+              </g>
+
+              <!-- entrance -->
+              <g transform="translate(280 398)">
+                <rect x="-46" y="-8" width="92" height="20" rx="10" fill="#1E2630"/>
+                <text x="0" y="6" text-anchor="middle" font-family="Sora, sans-serif" font-size="11" font-weight="700" fill="#fff">ENTRANCE</text>
+              </g>
+
+              <!-- facility markers: first aid (cross) + toilet (dot) per realm -->
+              <g font-family="Inter, sans-serif" font-size="11" font-weight="700">
+                <!-- Mythos -->
+                <g transform="translate(62 160)">
+                  <rect x="0" y="0" width="18" height="18" rx="5" fill="#fff" stroke="#D9483B" stroke-width="1.6"/>
+                  <path d="M9 4 V14 M4 9 H14" stroke="#D9483B" stroke-width="2" stroke-linecap="round"/>
+                </g>
+                <g transform="translate(86 160)">
+                  <rect x="0" y="0" width="18" height="18" rx="5" fill="#fff" stroke="#1F8A86" stroke-width="1.6"/>
+                  <text x="9" y="13" text-anchor="middle" fill="#1F8A86">WC</text>
+                </g>
+                <!-- Hydro -->
+                <g transform="translate(332 160)">
+                  <rect x="0" y="0" width="18" height="18" rx="5" fill="#fff" stroke="#D9483B" stroke-width="1.6"/>
+                  <path d="M9 4 V14 M4 9 H14" stroke="#D9483B" stroke-width="2" stroke-linecap="round"/>
+                </g>
+                <g transform="translate(356 160)">
+                  <rect x="0" y="0" width="18" height="18" rx="5" fill="#fff" stroke="#1F8A86" stroke-width="1.6"/>
+                  <text x="9" y="13" text-anchor="middle" fill="#1F8A86">WC</text>
+                </g>
+                <!-- Abyss -->
+                <g transform="translate(440 348)">
+                  <rect x="0" y="0" width="18" height="18" rx="5" fill="#fff" stroke="#D9483B" stroke-width="1.6"/>
+                  <path d="M9 4 V14 M4 9 H14" stroke="#D9483B" stroke-width="2" stroke-linecap="round"/>
+                </g>
+                <g transform="translate(464 348)">
+                  <rect x="0" y="0" width="18" height="18" rx="5" fill="#fff" stroke="#1F8A86" stroke-width="1.6"/>
+                  <text x="9" y="13" text-anchor="middle" fill="#1F8A86">WC</text>
+                </g>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FOOD & DINING ============ -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Food &amp; dining</span>
+          <h2>Refreshments throughout the park</h2>
+          <p>Food locations are placed throughout the park so visitors can find refreshments without leaving their chosen realm.</p>
+        </div>
+        <div class="grid food-grid">
+          <!-- each food option as its own card -->
+          <div class="food-card reveal"><span class="food-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 12h18M5 12a7 4 0 0114 0M7 12c1 2 9 2 10 0"/></svg></span><span><b>Hot Dog Stand</b><span>Quick bites</span></span></div>
+          <div class="food-card reveal"><span class="food-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="6" rx="3"/><circle cx="8" cy="12" r="1.4" fill="currentColor" stroke="none"/><circle cx="14" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg></span><span><b>Sushi Stand</b><span>Fresh &amp; light</span></span></div>
+          <div class="food-card reveal"><span class="food-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 4c-1 5-1 11 0 16M12 4c-1 5-1 11 0 16M16 4c-1 5-1 11 0 16"/></svg></span><span><b>Churros Stand</b><span>Sweet treats</span></span></div>
+          <div class="food-card reveal"><span class="food-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 10a5 5 0 0110 0z"/><path d="M12 10l-2 10M12 10l2 10"/></svg></span><span><b>Ice Cream Stand</b><span>Cool down</span></span></div>
+          <div class="food-card reveal"><span class="food-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 9h11v4a5 5 0 01-5 5H10a5 5 0 01-5-5z"/><path d="M16 10h2a2 2 0 010 4h-2"/><path d="M8 5v1M11 4v2"/></svg></span><span><b>Cafe</b><span>Coffee &amp; pastries</span></span></div>
+          <div class="food-card reveal"><span class="food-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3v8a2 2 0 002 2v8M8 3v6M10 3v6M18 3c-1 2-1 5 0 7v11"/></svg></span><span><b>Restaurant</b><span>Sit-down dining</span></span></div>
+          <div class="food-card reveal"><span class="food-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 16c0-4 3-7 7-7s7 3 7 7z"/><path d="M5 16h14M9 9V6M15 9V6"/></svg></span><span><b>Chicken Stand</b><span>Hot &amp; savoury</span></span></div>
+          <div class="food-card reveal"><span class="food-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 18L13 5a4 4 0 015 5L9 19z"/><path d="M6 12h6M5 15h6"/></svg></span><span><b>Crepe &amp; Waffle Stand</b><span>Sweet &amp; savoury</span></span></div>
+          <div class="food-card reveal"><span class="food-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 11a7 7 0 0114 0z"/><rect x="3" y="11" width="18" height="3" rx="1.5"/><path d="M6 17h12"/></svg></span><span><b>Fast Food Stand</b><span>On the go</span></span></div>
+          <div class="food-card reveal"><span class="food-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12a7 7 0 0114 0z"/><path d="M4 12h16l-2 3H6z"/></svg></span><span><b>Burger Stand</b><span>Park classic</span></span></div>
+          <div class="food-card reveal"><span class="food-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 7h14M5 7a4 4 0 004 4h6a4 4 0 004-4M9 11v8M15 11v8"/></svg></span><span><b>Pasta Stand</b><span>Warm bowls</span></span></div>
+          <div class="food-card reveal"><span class="food-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l9 5-9 13L3 8z"/><circle cx="10" cy="9" r="1" fill="currentColor" stroke="none"/><circle cx="13" cy="12" r="1" fill="currentColor" stroke="none"/></svg></span><span><b>Pizza Stand</b><span>By the slice</span></span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GUEST COMFORT ============ -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Guest comfort</span>
+          <h2>Comfortable from open to close</h2>
+          <p>Small details, planned across the whole park, that keep your visit relaxed and easy.</p>
+        </div>
+        <div class="grid grid--2">
+          <article class="card feature reveal">
+            <div class="chip" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 11h16M6 11V9a2 2 0 012-2h8a2 2 0 012 2v2M5 11l-1 7M19 11l1 7M7 18h10"/></svg></div>
+            <h3>Benches across the park</h3>
+            <p>Twenty benches are placed across the park to provide rest stops between attractions and realms.</p>
+          </article>
+          <article class="card feature reveal">
+            <div class="chip chip--gold" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M4 8h16M9 8V5h6v3M10 11v6M14 11v6"/></svg></div>
+            <h3>Bins near food areas</h3>
+            <p>Ten bins are placed near food areas to keep dining spots clean and tidy throughout the day.</p>
+          </article>
+          <article class="card feature reveal">
+            <div class="chip chip--coral" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="3"/><path d="M12 9v6M9 12h6"/></svg></div>
+            <h3>First aid in every realm</h3>
+            <p>Three first aid blocks, one in each realm, keep trained help close wherever you are in the park.</p>
+          </article>
+          <article class="card feature reveal">
+            <div class="chip" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="8" cy="6" r="2"/><circle cx="16" cy="6" r="2"/><path d="M6 20v-5H5l2-5h2l1 5H9v5M18 20v-5h1l-2-5h-2l-1 5h1v5"/></svg></div>
+            <h3>Toilets in every realm</h3>
+            <p>Three toilet blocks, one located in each realm, so facilities are always within easy reach.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA BAND ============ -->
+    <section class="section section--tight">
+      <div class="container">
+        <div class="cta-band reveal">
+          <h2>Ready when you are</h2>
+          <p>Now that you know your way around, choose your tickets and pick a date for your visit.</p>
+          <div class="actions">
+            <a class="btn btn--lg" href="book.html">Book Now <span class="arrow" aria-hidden="true">&rarr;</span></a>
+            <a class="btn btn--ghost btn--lg" href="realms.html">Explore the Realms</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div>
+          <a class="brand" href="index.html" aria-label="Phoenix Realm home">
+            <img class="brand__logo" src="assets/logo.svg" alt="" />
+            <span class="brand__text">
+              <span class="brand__name">Phoenix Realm</span>
+              <span class="brand__tag">Three Realms. One Myth.</span>
+            </span>
+          </a>
+          <p class="footer__about">A mythology-themed park with three immersive realms inspired by legendary creatures and ancient myths. Explore, plan and discover your day.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="realms.html">Explore Realms</a></li>
+            <li><a href="plan.html">Plan Your Visit</a></li>
+            <li><a href="book.html">Book Now</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Visit</h4>
+          <p>Open daily, all year round.<br />See Plan Your Visit for facilities, dining and guest comfort across the park.</p>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; <span data-year>2026</span> Phoenix Realm. Prototype site created for presentation purposes.</p>
+        <p class="slogan">Three Realms. One Myth.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
