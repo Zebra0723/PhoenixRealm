@@ -140,17 +140,25 @@
     function applyStock(card) {
       const state = card.dataset.stock;
       const out = state === "out";
+      const max = parseInt(card.dataset.max, 10) || (out ? 0 : 20);
       const status = card.querySelector("[data-status]");
       const stepper = card.querySelector(".stepper");
       const input = card.querySelector("[data-qty]");
       card.classList.toggle("is-soldout", out);
       if (stepper) stepper.classList.toggle("is-disabled", out);
       card.querySelectorAll(".stepper button").forEach(function (b) { b.disabled = out; });
-      if (input) { input.disabled = out; if (out) input.value = 0; }
+      if (input) {
+        input.disabled = out;
+        input.max = String(max);
+        let v = parseInt(input.value, 10) || 0;
+        if (v < 0) v = 0;
+        if (v > max) v = max;
+        input.value = v;
+      }
       if (status) {
         status.classList.remove("is-in", "is-low", "is-out");
         if (out) { status.classList.add("is-out"); status.textContent = "Sold out"; }
-        else if (state === "low") { status.classList.add("is-low"); status.textContent = "Only a few left"; }
+        else if (state === "low") { status.classList.add("is-low"); status.textContent = "Only " + max + " left"; }
         else { status.classList.add("is-in"); status.textContent = "Available"; }
       }
     }
@@ -168,6 +176,13 @@
                             (byType.child && byType.child.dataset.stock === "out"))) {
         byType.family.dataset.stock = "out";
       }
+      // Set the quantity cap: "Only a few left" allows just 2 or 3.
+      cards.forEach(function (card) {
+        const s = card.dataset.stock;
+        if (s === "out") card.dataset.max = "0";
+        else if (s === "low") card.dataset.max = String(2 + Math.floor(seeded(dateStr + ":" + card.dataset.type + ":cap") * 2));
+        else card.dataset.max = "20";
+      });
       cards.forEach(applyStock);
 
       // Summary + status dot
@@ -193,9 +208,10 @@
       const dec = stepper.querySelector("[data-dec]");
       const inc = stepper.querySelector("[data-inc]");
       function clamp() {
+        const max = parseInt(card.dataset.max, 10) || 20;
         let v = parseInt(input.value, 10);
         if (isNaN(v) || v < 0) v = 0;
-        if (v > 20) v = 20;
+        if (v > max) v = max;
         input.value = v;
       }
       dec.addEventListener("click", function () { input.value = (parseInt(input.value, 10) || 0) - 1; clamp(); recalc(); });
