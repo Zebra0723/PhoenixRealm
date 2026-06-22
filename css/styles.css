@@ -36,7 +36,7 @@
   --maxw: 1180px;
   --ease: cubic-bezier(.22,.61,.36,1);
 
-  --font-display: "Sora", "Trebuchet MS", system-ui, sans-serif;
+  --font-display: "Fredoka", "Trebuchet MS", system-ui, sans-serif;
   --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 
@@ -60,16 +60,16 @@ ul { list-style: none; padding: 0; }
 
 h1,h2,h3,h4 {
   font-family: var(--font-display);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
   color: var(--ink);
-  font-weight: 700;
+  font-weight: 600;
 }
 
 ::selection { background: var(--coral-soft); color: #fff; }
 
 /* ---------- Layout helpers ---------- */
-.container { width: 100%; max-width: var(--maxw); margin-inline: auto; padding-inline: 24px; }
+.container { width: 100%; max-width: var(--maxw); margin-inline: auto; padding-inline: 40px; }
 .section { padding: 84px 0; }
 .section--tight { padding: 56px 0; }
 .section--alt { background: var(--surface-alt); }
@@ -224,6 +224,7 @@ h1,h2,h3,h4 {
 .hero__stat { padding: 14px 20px; text-align: center; }
 .hero__stat + .hero__stat { border-left: 1px solid var(--line); }
 .hero__stat b { display: block; font-family: var(--font-display); font-size: 1.4rem; color: var(--ink); }
+.hero__stat b.is-word { font-family: var(--font-body); font-weight: 700; font-size: 1.05rem; }
 .hero__stat span { font-size: .76rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-muted); }
 
 /* ---------- Page header (interior pages) ---------- */
@@ -496,6 +497,7 @@ h1,h2,h3,h4 {
 @media (max-width: 980px) {
   .hero__inner { grid-template-columns: 1fr; gap: 36px; padding: 60px 0 70px; }
   .hero__art { max-width: 440px; }
+  .hero__stats { position: static; margin-top: 16px; left: 0; width: fit-content; }
   .realm { grid-template-columns: 1fr; gap: 28px; padding: 48px 0; }
   .realm--rev .realm__media { order: 0; }
   .grid--4, .ticket-grid, .food-grid, .stat-strip { grid-template-columns: repeat(2,1fr); }
@@ -509,6 +511,7 @@ h1,h2,h3,h4 {
 @media (max-width: 760px) {
   body { font-size: 16px; }
   .section { padding: 60px 0; }
+  .container { padding-inline: 26px; }
   .nav__links {
     position: absolute; top: 76px; left: 0; right: 0;
     flex-direction: column; align-items: stretch; gap: 4px;
@@ -529,7 +532,7 @@ h1,h2,h3,h4 {
   .grid--4, .grid--3, .grid--2, .ticket-grid, .food-grid, .stat-strip { grid-template-columns: 1fr; }
   .footer__top { grid-template-columns: 1fr; gap: 28px; }
   .hero__stats { position: static; margin-top: 18px; left: 0; }
-  .container { padding-inline: 18px; }
+  .container { padding-inline: 20px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

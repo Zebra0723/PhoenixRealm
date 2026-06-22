@@ -1,36 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" role="img" aria-label="Phoenix Realm">
-  <defs>
-    <linearGradient id="pr-coral" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#F07A5E"/>
-      <stop offset="1" stop-color="#D9483B"/>
-    </linearGradient>
-    <linearGradient id="pr-teal" x1="0" y1="1" x2="1" y2="0">
-      <stop offset="0" stop-color="#1F8A86"/>
-      <stop offset="1" stop-color="#36B3AC"/>
-    </linearGradient>
-    <linearGradient id="pr-gold" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#F0D38A"/>
-      <stop offset="1" stop-color="#E2BB5C"/>
-    </linearGradient>
-  </defs>
-
-  <!-- soft ring -->
-  <circle cx="160" cy="160" r="150" fill="none" stroke="#1F8A86" stroke-opacity="0.16" stroke-width="3"/>
-
-  <!-- rising phoenix, formed from clean stylised feather strokes -->
-  <g transform="translate(160 168)">
-    <!-- outer left wing -->
-    <path d="M0 30 C-46 22 -86 -8 -104 -56 C-70 -36 -44 -34 -20 -44 C-44 -20 -50 4 -34 20 C-22 30 -10 32 0 30 Z" fill="url(#pr-teal)"/>
-    <!-- outer right wing -->
-    <path d="M0 30 C46 22 86 -8 104 -56 C70 -36 44 -34 20 -44 C44 -20 50 4 34 20 C22 30 10 32 0 30 Z" fill="url(#pr-coral)"/>
-    <!-- inner left wing -->
-    <path d="M0 38 C-30 36 -58 18 -72 -22 C-50 -10 -30 -10 -14 -20 C-30 -2 -32 18 -18 30 C-12 35 -6 38 0 38 Z" fill="url(#pr-coral)" opacity="0.92"/>
-    <!-- inner right wing -->
-    <path d="M0 38 C30 36 58 18 72 -22 C50 -10 30 -10 14 -20 C30 -2 32 18 18 30 C12 35 6 38 0 38 Z" fill="url(#pr-teal)" opacity="0.92"/>
-    <!-- body + rising head -->
-    <path d="M0 64 C-12 50 -14 30 -6 12 C-2 4 0 -8 0 -20 C2 -36 14 -52 36 -64 C30 -44 30 -32 38 -26 C24 -24 14 -14 10 0 C8 22 8 44 0 64 Z" fill="url(#pr-gold)"/>
-    <!-- tail flames -->
-    <path d="M0 64 C-6 86 -2 106 8 124 C10 102 12 86 18 72 Z" fill="url(#pr-coral)"/>
-    <path d="M0 64 C-2 88 -10 106 -22 122 C-16 100 -12 84 -10 70 Z" fill="url(#pr-teal)"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Phoenix Realm ferris wheel logo">
+  <!-- support beam glow -->
+  <path d="M100 86 L70 182 L130 182 Z" fill="#2EA8A2" opacity="0.12"/>
+  <!-- legs -->
+  <g stroke="#1F8A86" stroke-width="4" stroke-linecap="round">
+    <line x1="100" y1="86" x2="70" y2="180"/>
+    <line x1="100" y1="86" x2="130" y2="180"/>
+    <line x1="60" y1="180" x2="140" y2="180"/>
   </g>
+  <!-- wheel -->
+  <g fill="none" stroke="#2EA8A2" stroke-width="2">
+    <line x1="100" y1="86" x2="100.0" y2="14.0"/><line x1="100" y1="86" x2="136.0" y2="23.6"/><line x1="100" y1="86" x2="162.4" y2="50.0"/><line x1="100" y1="86" x2="172.0" y2="86.0"/><line x1="100" y1="86" x2="162.4" y2="122.0"/><line x1="100" y1="86" x2="136.0" y2="148.4"/><line x1="100" y1="86" x2="100.0" y2="158.0"/><line x1="100" y1="86" x2="64.0" y2="148.4"/><line x1="100" y1="86" x2="37.6" y2="122.0"/><line x1="100" y1="86" x2="28.0" y2="86.0"/><line x1="100" y1="86" x2="37.6" y2="50.0"/><line x1="100" y1="86" x2="64.0" y2="23.6"/>
+  </g>
+  <circle cx="100" cy="86" r="72" fill="none" stroke="#2EA8A2" stroke-width="5"/>
+  <circle cx="100" cy="86" r="56" fill="none" stroke="#2EA8A2" stroke-width="2.4" opacity="0.55"/>
+  <!-- cabins -->
+  <line x1="100.0" y1="14.0" x2="100.0" y2="8.0" stroke="#1F8A86" stroke-width="1.4"/><path d="M91.0 8.0 a9 7 0 0 1 18 0 z" fill="#E5564A"/><line x1="95.5" y1="2.0" x2="95.5" y2="8.0" stroke="#FBF8F4" stroke-width="1.6"/><line x1="100.5" y1="1.4" x2="100.5" y2="8.0" stroke="#FBF8F4" stroke-width="1.6"/><line x1="105.5" y1="2.0" x2="105.5" y2="8.0" stroke="#FBF8F4" stroke-width="1.6"/><rect x="93.5" y="9.0" width="13" height="12" rx="4" fill="#F1C94E" stroke="#E0B43E" stroke-width="1"/><line x1="136.0" y1="23.6" x2="137.5" y2="18.0" stroke="#1F8A86" stroke-width="1.4"/><path d="M128.5 18.0 a9 7 0 0 1 18 0 z" fill="#E5564A"/><line x1="133.0" y1="12.0" x2="133.0" y2="18.0" stroke="#FBF8F4" stroke-width="1.6"/><line x1="138.0" y1="11.4" x2="138.0" y2="18.0" stroke="#FBF8F4" stroke-width="1.6"/><line x1="143.0" y1="12.0" x2="143.0" y2="18.0" stroke="#FBF8F4" stroke-width="1.6"/><rect x="131.0" y="19.0" width="13" height="12" rx="4" fill="#F1C94E" stroke="#E0B43E" stroke-width="1"/><line x1="162.4" y1="50.0" x2="165.0" y2="45.5" stroke="#1F8A86" stroke-width="1.4"/><path d="M156.0 45.5 a9 7 0 0 1 18 0 z" fill="#E5564A"/><line x1="160.5" y1="39.5" x2="160.5" y2="45.5" stroke="#FBF8F4" stroke-width="1.6"/><line x1="165.5" y1="38.9" x2="165.5" y2="45.5" stroke="#FBF8F4" stroke-width="1.6"/><line x1="170.5" y1="39.5" x2="170.5" y2="45.5" stroke="#FBF8F4" stroke-width="1.6"/><rect x="158.5" y="46.5" width="13" height="12" rx="4" fill="#F1C94E" stroke="#E0B43E" stroke-width="1"/><line x1="172.0" y1="86.0" x2="175.0" y2="83.0" stroke="#1F8A86" stroke-width="1.4"/><path d="M166.0 83.0 a9 7 0 0 1 18 0 z" fill="#E5564A"/><line x1="170.5" y1="77.0" x2="170.5" y2="83.0" stroke="#FBF8F4" stroke-width="1.6"/><line x1="175.5" y1="76.4" x2="175.5" y2="83.0" stroke="#FBF8F4" stroke-width="1.6"/><line x1="180.5" y1="77.0" x2="180.5" y2="83.0" stroke="#FBF8F4" stroke-width="1.6"/><rect x="168.5" y="84.0" width="13" height="12" rx="4" fill="#F1C94E" stroke="#E0B43E" stroke-width="1"/><line x1="162.4" y1="122.0" x2="165.0" y2="120.5" stroke="#1F8A86" stroke-width="1.4"/><path d="M156.0 120.5 a9 7 0 0 1 18 0 z" fill="#E5564A"/><line x1="160.5" y1="114.5" x2="160.5" y2="120.5" stroke="#FBF8F4" stroke-width="1.6"/><line x1="165.5" y1="113.9" x2="165.5" y2="120.5" stroke="#FBF8F4" stroke-width="1.6"/><line x1="170.5" y1="114.5" x2="170.5" y2="120.5" stroke="#FBF8F4" stroke-width="1.6"/><rect x="158.5" y="121.5" width="13" height="12" rx="4" fill="#F1C94E" stroke="#E0B43E" stroke-width="1"/><line x1="136.0" y1="148.4" x2="137.5" y2="148.0" stroke="#1F8A86" stroke-width="1.4"/><path d="M128.5 148.0 a9 7 0 0 1 18 0 z" fill="#E5564A"/><line x1="133.0" y1="142.0" x2="133.0" y2="148.0" stroke="#FBF8F4" stroke-width="1.6"/><line x1="138.0" y1="141.4" x2="138.0" y2="148.0" stroke="#FBF8F4" stroke-width="1.6"/><line x1="143.0" y1="142.0" x2="143.0" y2="148.0" stroke="#FBF8F4" stroke-width="1.6"/><rect x="131.0" y="149.0" width="13" height="12" rx="4" fill="#F1C94E" stroke="#E0B43E" stroke-width="1"/><line x1="100.0" y1="158.0" x2="100.0" y2="158.0" stroke="#1F8A86" stroke-width="1.4"/><path d="M91.0 158.0 a9 7 0 0 1 18 0 z" fill="#E5564A"/><line x1="95.5" y1="152.0" x2="95.5" y2="158.0" stroke="#FBF8F4" stroke-width="1.6"/><line x1="100.5" y1="151.4" x2="100.5" y2="158.0" stroke="#FBF8F4" stroke-width="1.6"/><line x1="105.5" y1="152.0" x2="105.5" y2="158.0" stroke="#FBF8F4" stroke-width="1.6"/><rect x="93.5" y="159.0" width="13" height="12" rx="4" fill="#F1C94E" stroke="#E0B43E" stroke-width="1"/><line x1="64.0" y1="148.4" x2="62.5" y2="148.0" stroke="#1F8A86" stroke-width="1.4"/><path d="M53.5 148.0 a9 7 0 0 1 18 0 z" fill="#E5564A"/><line x1="58.0" y1="142.0" x2="58.0" y2="148.0" stroke="#FBF8F4" stroke-width="1.6"/><line x1="63.0" y1="141.4" x2="63.0" y2="148.0" stroke="#FBF8F4" stroke-width="1.6"/><line x1="68.0" y1="142.0" x2="68.0" y2="148.0" stroke="#FBF8F4" stroke-width="1.6"/><rect x="56.0" y="149.0" width="13" height="12" rx="4" fill="#F1C94E" stroke="#E0B43E" stroke-width="1"/><line x1="37.6" y1="122.0" x2="35.0" y2="120.5" stroke="#1F8A86" stroke-width="1.4"/><path d="M26.0 120.5 a9 7 0 0 1 18 0 z" fill="#E5564A"/><line x1="30.5" y1="114.5" x2="30.5" y2="120.5" stroke="#FBF8F4" stroke-width="1.6"/><line x1="35.5" y1="113.9" x2="35.5" y2="120.5" stroke="#FBF8F4" stroke-width="1.6"/><line x1="40.5" y1="114.5" x2="40.5" y2="120.5" stroke="#FBF8F4" stroke-width="1.6"/><rect x="28.5" y="121.5" width="13" height="12" rx="4" fill="#F1C94E" stroke="#E0B43E" stroke-width="1"/><line x1="28.0" y1="86.0" x2="25.0" y2="83.0" stroke="#1F8A86" stroke-width="1.4"/><path d="M16.0 83.0 a9 7 0 0 1 18 0 z" fill="#E5564A"/><line x1="20.5" y1="77.0" x2="20.5" y2="83.0" stroke="#FBF8F4" stroke-width="1.6"/><line x1="25.5" y1="76.4" x2="25.5" y2="83.0" stroke="#FBF8F4" stroke-width="1.6"/><line x1="30.5" y1="77.0" x2="30.5" y2="83.0" stroke="#FBF8F4" stroke-width="1.6"/><rect x="18.5" y="84.0" width="13" height="12" rx="4" fill="#F1C94E" stroke="#E0B43E" stroke-width="1"/><line x1="37.6" y1="50.0" x2="35.0" y2="45.5" stroke="#1F8A86" stroke-width="1.4"/><path d="M26.0 45.5 a9 7 0 0 1 18 0 z" fill="#E5564A"/><line x1="30.5" y1="39.5" x2="30.5" y2="45.5" stroke="#FBF8F4" stroke-width="1.6"/><line x1="35.5" y1="38.9" x2="35.5" y2="45.5" stroke="#FBF8F4" stroke-width="1.6"/><line x1="40.5" y1="39.5" x2="40.5" y2="45.5" stroke="#FBF8F4" stroke-width="1.6"/><rect x="28.5" y="46.5" width="13" height="12" rx="4" fill="#F1C94E" stroke="#E0B43E" stroke-width="1"/><line x1="64.0" y1="23.6" x2="62.5" y2="18.0" stroke="#1F8A86" stroke-width="1.4"/><path d="M53.5 18.0 a9 7 0 0 1 18 0 z" fill="#E5564A"/><line x1="58.0" y1="12.0" x2="58.0" y2="18.0" stroke="#FBF8F4" stroke-width="1.6"/><line x1="63.0" y1="11.4" x2="63.0" y2="18.0" stroke="#FBF8F4" stroke-width="1.6"/><line x1="68.0" y1="12.0" x2="68.0" y2="18.0" stroke="#FBF8F4" stroke-width="1.6"/><rect x="56.0" y="19.0" width="13" height="12" rx="4" fill="#F1C94E" stroke="#E0B43E" stroke-width="1"/>
+  <!-- hub -->
+  <circle cx="100" cy="86" r="9" fill="#E5564A"/>
+  <circle cx="100" cy="86" r="3.4" fill="#F1C94E"/>
 </svg>
