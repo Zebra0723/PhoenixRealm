@@ -538,6 +538,11 @@ h1,h2,h3,h4 {
 .hours__day { font-family: var(--font-display); font-weight: 600; color: var(--ink); }
 .hours__time { font-family: var(--font-display); font-weight: 600; color: var(--teal); font-size: 1.05rem; }
 .hours__note { margin-top: 16px; font-size: .9rem; color: var(--ink-muted); }
+.hours__now { text-align: center; margin: 6px 0 4px; }
+.hours__status { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-display); font-weight: 600; font-size: .85rem; letter-spacing: .03em; padding: 7px 15px; border-radius: 999px; background: var(--surface-alt); color: var(--ink-muted); }
+.hours__status::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+.hours__status.is-open { background: var(--teal-tint); color: var(--teal); }
+.hours__status.is-closed { background: var(--coral-tint); color: var(--coral); }
 
 /* ---------- Footer ---------- */
 .footer { background: var(--ink); color: #C9D1D9; padding: 64px 0 32px; }

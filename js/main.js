@@ -255,6 +255,34 @@
     evaluateAvailability((dateInput && dateInput.value) || today);
   }
 
+  /* ---- Opening hours: live open / closed status ---- */
+  const openStatusEl = document.querySelector("[data-open-status]");
+  if (openStatusEl) {
+    const isHoliday = function (d) {
+      const md = (d.getMonth() + 1) * 100 + d.getDate();
+      const r = function (a, b) { return md >= a && md <= b; };
+      return r(1218, 1231) || r(101, 102) || r(214, 222) || r(401, 415) || r(524, 531) || r(720, 831) || r(1024, 1101);
+    };
+    const hoursFor = function (d) {
+      const weekend = d.getDay() === 0 || d.getDay() === 6;
+      return (weekend || isHoliday(d)) ? { o: 9 * 60 + 30, c: 18 * 60 } : { o: 10 * 60, c: 17 * 60 };
+    };
+    const fmt = function (m) {
+      const hh = Math.floor(m / 60), mm = m % 60;
+      return (hh < 10 ? "0" : "") + hh + ":" + (mm < 10 ? "0" : "") + mm;
+    };
+    const now = new Date();
+    const mins = now.getHours() * 60 + now.getMinutes();
+    const h = hoursFor(now);
+    if (mins >= h.o && mins < h.c) {
+      openStatusEl.classList.add("is-open");
+      openStatusEl.textContent = "Open now · closes " + fmt(h.c);
+    } else {
+      openStatusEl.classList.add("is-closed");
+      openStatusEl.textContent = mins < h.o ? ("Closed · opens " + fmt(h.o)) : "Closed for today";
+    }
+  }
+
   /* ---- Footer year ---- */
   const yearEl = document.querySelector("[data-year]");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
