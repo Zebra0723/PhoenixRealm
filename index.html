@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Phoenix Realm — Awaken the adventure.</title>
   <meta name="description" content="Phoenix Realm is a mythology-themed park with three realms inspired by legendary creatures and ancient myths. Awaken the adventure." />
-  <link rel="icon" type="image/svg+xml" href="assets/logo.svg?v=17" />
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg?v=18" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=17" />
+  <link rel="stylesheet" href="css/styles.css?v=18" />
 </head>
 <body>
 
@@ -17,7 +17,7 @@
   <header class="nav" id="top">
     <div class="container nav__inner">
       <a class="brand" href="index.html" aria-label="Phoenix Realm home">
-        <img class="brand__logo" src="assets/logo.svg?v=17" alt="Phoenix Realm logo" />
+        <img class="brand__logo" src="assets/logo.svg?v=18" alt="Phoenix Realm logo" />
         <span class="brand__text">
           <span class="brand__name">Phoenix Realm</span>
           <span class="brand__tag">Awaken the adventure.</span>
@@ -82,7 +82,7 @@
 
       <div class="container hero__inner">
         <div class="hero__copy reveal">
-          <img class="hero__logo" src="assets/logo.svg?v=17" alt="Phoenix Realm" />
+          <img class="hero__logo" src="assets/logo.svg?v=18" alt="Phoenix Realm" />
           <h1>Phoenix Realm</h1>
           <p class="hero__slogan">Awaken the adventure.</p>
           <p class="hero__intro">Step into Phoenix Realm, a mythology-themed park where families, explorers and thrill-seekers can discover three immersive realms inspired by legendary creatures and ancient myths.</p>
@@ -268,8 +268,44 @@
       </div>
     </section>
 
+    <!-- ============ REVIEWS ============ -->
+    <section class="section" id="reviews">
+      <div class="container">
+        <div class="section-head section-head--center reveal">
+          <span class="eyebrow eyebrow--center">Reviews</span>
+          <h2>What visitors say</h2>
+          <p>Been to Phoenix Realm? Share your day, and see what other guests thought.</p>
+        </div>
+        <div class="reviews reveal" data-reviews>
+          <div class="reviews__head">
+            <div class="reviews__summary" data-reviews-summary></div>
+            <button class="btn" type="button" data-review-open>Write a review</button>
+          </div>
+          <form class="review-form" data-review-form hidden>
+            <label>Your name
+              <input type="text" name="name" maxlength="40" autocomplete="name" required />
+            </label>
+            <div>
+              <span class="review-form__label">Your rating</span>
+              <div class="rating-input" data-rating role="group" aria-label="Star rating"></div>
+            </div>
+            <label>Your review
+              <textarea name="comment" maxlength="400" rows="3" required></textarea>
+            </label>
+            <div class="review-form__actions">
+              <button type="button" class="btn btn--ghost" data-review-cancel>Cancel</button>
+              <button type="submit" class="btn">Post review</button>
+            </div>
+          </form>
+          <div class="reviews__list" data-reviews-list>
+            <p class="reviews__empty">Loading reviews&hellip;</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ CTA BAND ============ -->
-    <section class="section">
+    <section class="section section--alt">
       <div class="container">
         <div class="cta-band reveal">
           <h2>Ready for the adventure?</h2>
@@ -289,7 +325,7 @@
       <div class="footer__top">
         <div>
           <a class="brand" href="index.html" aria-label="Phoenix Realm home">
-            <img class="brand__logo" src="assets/logo.svg?v=17" alt="" />
+            <img class="brand__logo" src="assets/logo.svg?v=18" alt="" />
             <span class="brand__text">
               <span class="brand__name">Phoenix Realm</span>
               <span class="brand__tag">Awaken the adventure.</span>
@@ -318,6 +354,7 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=17"></script>
+  <script src="js/config.js?v=18"></script>
+  <script src="js/main.js?v=18"></script>
 </body>
 </html>

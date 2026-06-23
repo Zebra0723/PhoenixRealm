@@ -283,6 +283,122 @@
     }
   }
 
+  /* ---- Reviews (Supabase-backed, cross-device) ---- */
+  const reviewsRoot = document.querySelector("[data-reviews]");
+  if (reviewsRoot) {
+    const cfg = window.PR_CONFIG || {};
+    const base = (cfg.SUPABASE_URL || "").replace(/\/+$/, "");
+    const key = cfg.SUPABASE_ANON_KEY || "";
+    const configured = !!(base && key);
+
+    const listEl = reviewsRoot.querySelector("[data-reviews-list]");
+    const summaryEl = reviewsRoot.querySelector("[data-reviews-summary]");
+    const form = reviewsRoot.querySelector("[data-review-form]");
+    const openBtn = reviewsRoot.querySelector("[data-review-open]");
+    const cancelBtn = reviewsRoot.querySelector("[data-review-cancel]");
+    const ratingWrap = reviewsRoot.querySelector("[data-rating]");
+    const nameInput = form ? form.querySelector('[name="name"]') : null;
+    const commentInput = form ? form.querySelector('[name="comment"]') : null;
+    let rating = 0;
+
+    function star(filled) {
+      return '<svg viewBox="0 0 24 24" class="' + (filled ? "star-filled" : "star-empty") + '" aria-hidden="true"><path d="M12 3l2.7 5.5 6 .9-4.35 4.2 1.03 6L12 17.8 6.62 19.6l1.03-6L3.3 9.4l6-.9z"/></svg>';
+    }
+    function starsRow(n) { var s = ""; for (var i = 1; i <= 5; i++) s += star(i <= n); return s; }
+    function esc(t) { var d = document.createElement("div"); d.textContent = t == null ? "" : t; return d.innerHTML; }
+    function headers(extra) { var h = { apikey: key, Authorization: "Bearer " + key }; if (extra) for (var k in extra) h[k] = extra[k]; return h; }
+
+    /* Star rating input */
+    if (ratingWrap) {
+      for (var i = 1; i <= 5; i++) {
+        (function (v) {
+          var b = document.createElement("button");
+          b.type = "button";
+          b.setAttribute("aria-label", v + (v > 1 ? " stars" : " star"));
+          b.innerHTML = star(false);
+          b.addEventListener("click", function () { rating = v; paintRating(); });
+          ratingWrap.appendChild(b);
+        })(i);
+      }
+    }
+    function paintRating() {
+      if (!ratingWrap) return;
+      ratingWrap.querySelectorAll("button").forEach(function (b, idx) { b.innerHTML = star(idx < rating); });
+    }
+
+    function render(items) {
+      if (!listEl) return;
+      listEl.innerHTML = "";
+      if (summaryEl) summaryEl.innerHTML = "";
+      if (!items || !items.length) {
+        var p = document.createElement("p");
+        p.className = "reviews__empty";
+        p.textContent = "No reviews yet. Be the first to share your visit.";
+        listEl.appendChild(p);
+        return;
+      }
+      var total = 0;
+      items.forEach(function (r) { total += Number(r.rating) || 0; });
+      var avg = total / items.length;
+      if (summaryEl) {
+        summaryEl.innerHTML = '<span class="reviews__avg">' + avg.toFixed(1) + '</span>' +
+          '<span class="reviews__stars">' + starsRow(Math.round(avg)) + '</span>' +
+          '<span>' + items.length + ' review' + (items.length > 1 ? "s" : "") + '</span>';
+      }
+      items.forEach(function (r) {
+        var card = document.createElement("div");
+        card.className = "review-card";
+        var date = r.created_at ? new Date(r.created_at).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }) : "";
+        card.innerHTML =
+          '<div class="review-card__top"><span class="review-card__name">' + esc(r.name || "Guest") + '</span>' +
+          '<span class="review-card__date">' + date + '</span></div>' +
+          '<div class="review-card__stars">' + starsRow(r.rating) + '</div>' +
+          '<p>' + esc(r.comment) + '</p>';
+        listEl.appendChild(card);
+      });
+    }
+
+    function load() {
+      if (!configured) { render([]); return; }
+      fetch(base + "/rest/v1/reviews?select=*&order=created_at.desc", { headers: headers() })
+        .then(function (r) { return r.ok ? r.json() : []; })
+        .then(render)
+        .catch(function () { render([]); });
+    }
+
+    if (openBtn && form) openBtn.addEventListener("click", function () {
+      form.hidden = false; openBtn.hidden = true; if (nameInput) nameInput.focus();
+    });
+    if (cancelBtn && form) cancelBtn.addEventListener("click", function () {
+      form.hidden = true; if (openBtn) openBtn.hidden = false;
+    });
+
+    if (form) form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var name = nameInput ? nameInput.value.trim() : "";
+      var comment = commentInput ? commentInput.value.trim() : "";
+      if (!name || !comment || rating < 1) { alert("Please add your name, a star rating and a few words."); return; }
+      if (!configured) { alert("Reviews aren't connected yet. Please try again later."); return; }
+      var btn = form.querySelector('[type="submit"]');
+      btn.disabled = true; btn.textContent = "Posting…";
+      fetch(base + "/rest/v1/reviews", {
+        method: "POST",
+        headers: headers({ "Content-Type": "application/json", Prefer: "return=representation" }),
+        body: JSON.stringify({ name: name, rating: rating, comment: comment })
+      })
+        .then(function (r) { if (!r.ok) throw new Error(); return r.json(); })
+        .then(function () {
+          form.reset(); rating = 0; paintRating();
+          form.hidden = true; if (openBtn) openBtn.hidden = false;
+          load();
+        })
+        .catch(function () { alert("Sorry, we couldn't post your review. Please try again."); })
+        .then(function () { btn.disabled = false; btn.textContent = "Post review"; });
+    });
+
+    load();
+  }
+
   /* ---- Footer year ---- */
   const yearEl = document.querySelector("[data-year]");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
