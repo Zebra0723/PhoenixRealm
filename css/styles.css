@@ -590,6 +590,20 @@ h1,h2,h3,h4 {
 .quick-rate__label { font-family: var(--font-display); font-weight: 600; color: var(--ink); font-size: .95rem; }
 .quick-rate .rating-input svg { width: 26px; height: 26px; }
 .quick-rate__msg { font-size: .88rem; color: var(--teal); font-weight: 500; }
+.rating-input.is-locked { opacity: .8; }
+.rating-input.is-locked button { cursor: default; }
+
+/* Plan my day */
+.planner { max-width: 760px; margin-inline: auto; }
+.planner__options { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+.planner__opt { font-family: var(--font-display); font-weight: 600; font-size: .95rem; padding: 11px 18px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; transition: background .2s var(--ease), color .2s var(--ease), border-color .2s var(--ease), transform .2s var(--ease); }
+.planner__opt:hover { border-color: var(--teal); color: var(--teal); transform: translateY(-2px); }
+.planner__opt.is-active { background: var(--coral); border-color: var(--coral); color: #fff; }
+.planner__opt:focus-visible { outline: none; box-shadow: var(--ring); }
+.planner__result { margin-top: 24px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-sm); padding: 26px; animation: fade .3s var(--ease); }
+.planner__result h3 { font-size: 1.25rem; margin-bottom: 14px; }
+.planner__result ol { margin: 0; padding-left: 22px; display: grid; gap: 10px; color: var(--ink-soft); }
+.planner__result li { padding-left: 4px; }
 
 /* ---------- Seasonal event cards ---------- */
 .event-card__season { display: inline-block; font-family: var(--font-display); font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--teal); background: var(--teal-tint); padding: 5px 11px; border-radius: 999px; margin-bottom: 12px; }

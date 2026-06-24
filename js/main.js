@@ -315,6 +315,12 @@
     function esc(t) { var d = document.createElement("div"); d.textContent = t == null ? "" : t; return d.innerHTML; }
     function headers(extra) { var h = { apikey: key, Authorization: "Bearer " + key }; if (extra) for (var k in extra) h[k] = extra[k]; return h; }
 
+    /* Safeguards: basic profanity filter + one quick-rating per device */
+    var BANNED = ["fuck", "shit", "bitch", "bastard", "asshole", "arsehole", "dick", "piss", "cunt", "slut", "whore", "prick", "wanker", "bollocks", "nigger", "faggot", "retard"];
+    function isClean(t) { var s = (t || "").toLowerCase(); for (var i = 0; i < BANNED.length; i++) { if (s.indexOf(BANNED[i]) !== -1) return false; } return true; }
+    function hasRated() { try { return localStorage.getItem("pr-quickrated") === "1"; } catch (e) { return false; } }
+    function markRated() { try { localStorage.setItem("pr-quickrated", "1"); } catch (e) {} }
+
     /* Star rating input */
     if (ratingWrap) {
       for (var i = 1; i <= 5; i++) {
@@ -395,6 +401,7 @@
       var name = nameInput ? nameInput.value.trim() : "";
       var comment = commentInput ? commentInput.value.trim() : "";
       if (!name || !comment || rating < 1) { alert("Please add your name, a star rating and a few words."); return; }
+      if (!isClean(name) || !isClean(comment)) { alert("Please keep it friendly — that looks like it contains language we can't post."); return; }
       if (!configured) { alert("Reviews aren't connected yet. Please try again later."); return; }
       var btn = form.querySelector('[type="submit"]');
       btn.disabled = true; btn.textContent = "Posting…";
@@ -416,6 +423,10 @@
       if (!quickWrap) return;
       quickWrap.querySelectorAll("button").forEach(function (b, idx) { b.innerHTML = star(idx < n); });
     }
+    function lockQuick(msg) {
+      if (quickWrap) { quickWrap.classList.add("is-locked"); quickWrap.querySelectorAll("button").forEach(function (b) { b.disabled = true; }); }
+      if (quickMsg) quickMsg.textContent = msg;
+    }
     if (quickWrap) {
       for (var q = 1; q <= 5; q++) {
         (function (v) {
@@ -425,21 +436,60 @@
           b.innerHTML = star(false);
           b.addEventListener("click", function () {
             if (quickBusy) return;
+            if (hasRated()) { paintQuick(0); lockQuick("You've already rated — thank you!"); return; }
             if (!configured) { alert("Reviews aren't connected yet. Please try again later."); return; }
             quickBusy = true;
             paintQuick(v);
             if (quickMsg) quickMsg.textContent = "Saving…";
             postReview({ name: "Anonymous", rating: v, comment: "" })
-              .then(function () { if (quickMsg) quickMsg.textContent = "Thanks for rating!"; load(); })
+              .then(function () { markRated(); paintQuick(v); lockQuick("Thanks for rating!"); load(); })
               .catch(function () { if (quickMsg) quickMsg.textContent = "Couldn't save — please try again."; paintQuick(0); })
               .then(function () { quickBusy = false; });
           });
           quickWrap.appendChild(b);
         })(q);
       }
+      if (hasRated()) lockQuick("You've already rated — thank you!");
     }
 
     load();
+  }
+
+  /* ---- Plan my day helper ---- */
+  const planner = document.querySelector("[data-planner]");
+  if (planner) {
+    var resultEl = planner.querySelector("[data-plan-result]");
+    var PLANS = {
+      family: { title: "A relaxed family day", steps: [
+        "Start in Mythos Family Realm — Pegasus Carousel and Griffin Glide are perfect for little ones.",
+        "Cool off in HydroRealm at Tidal Wave Bay.",
+        "Save Adolescent Abyss for another year — its rides are built for ages 12+."] },
+      mixed: { title: "A bit of everything", steps: [
+        "Warm up in Mythos Family Realm with the gentle rides and prize games.",
+        "Head to HydroRealm for Kraken Plunge and Siren Rapids.",
+        "Finish big in Adolescent Abyss on the Cerberus Coaster."] },
+      thrill: { title: "Straight to the thrills", steps: [
+        "Go to Adolescent Abyss first — Cerberus Coaster and the Abyssal Drop.",
+        "Cross to HydroRealm for the Kraken Plunge flume.",
+        "Wind down with a wander through Mythos Family Realm."] },
+      water: { title: "A day on the water", steps: [
+        "Spend the morning in HydroRealm — Kraken Plunge, Siren Rapids and Leviathan Falls.",
+        "Dry off with prize games in Mythos Family Realm.",
+        "Add a thrill in Adolescent Abyss if you're 12 or over."] }
+    };
+    planner.querySelectorAll("[data-plan]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        planner.querySelectorAll("[data-plan]").forEach(function (b) { b.classList.remove("is-active"); });
+        btn.classList.add("is-active");
+        var plan = PLANS[btn.getAttribute("data-plan")];
+        if (!plan || !resultEl) return;
+        var html = "<h3>" + plan.title + "</h3><ol>";
+        plan.steps.forEach(function (s) { var d = document.createElement("div"); d.textContent = s; html += "<li>" + d.innerHTML + "</li>"; });
+        html += "</ol>";
+        resultEl.innerHTML = html;
+        resultEl.hidden = false;
+      });
+    });
   }
 
   /* ---- Back to top ---- */
