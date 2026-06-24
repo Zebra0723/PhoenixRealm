@@ -330,22 +330,24 @@
       if (!listEl) return;
       listEl.innerHTML = "";
       if (summaryEl) summaryEl.innerHTML = "";
-      if (!items || !items.length) {
+      items = items || [];
+      if (items.length && summaryEl) {
+        var total = 0;
+        items.forEach(function (r) { total += Number(r.rating) || 0; });
+        var avg = total / items.length;
+        summaryEl.innerHTML = '<span class="reviews__avg">' + avg.toFixed(1) + '</span>' +
+          '<span class="reviews__stars">' + starsRow(Math.round(avg)) + '</span>' +
+          '<span>' + items.length + ' rating' + (items.length > 1 ? "s" : "") + '</span>';
+      }
+      var texts = items.filter(function (r) { return r.comment && r.comment.trim() !== ""; });
+      if (!texts.length) {
         var p = document.createElement("p");
         p.className = "reviews__empty";
-        p.textContent = "No reviews yet. Be the first to share your visit.";
+        p.textContent = items.length ? "No written reviews yet — be the first to leave one." : "No reviews yet. Be the first to share your visit.";
         listEl.appendChild(p);
         return;
       }
-      var total = 0;
-      items.forEach(function (r) { total += Number(r.rating) || 0; });
-      var avg = total / items.length;
-      if (summaryEl) {
-        summaryEl.innerHTML = '<span class="reviews__avg">' + avg.toFixed(1) + '</span>' +
-          '<span class="reviews__stars">' + starsRow(Math.round(avg)) + '</span>' +
-          '<span>' + items.length + ' review' + (items.length > 1 ? "s" : "") + '</span>';
-      }
-      items.forEach(function (r) {
+      texts.forEach(function (r) {
         var card = document.createElement("div");
         card.className = "review-card";
         var date = r.created_at ? new Date(r.created_at).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }) : "";
@@ -373,6 +375,14 @@
       form.hidden = true; if (openBtn) openBtn.hidden = false;
     });
 
+    function postReview(payload) {
+      return fetch(base + "/rest/v1/reviews", {
+        method: "POST",
+        headers: headers({ "Content-Type": "application/json", Prefer: "return=representation" }),
+        body: JSON.stringify(payload)
+      }).then(function (r) { if (!r.ok) throw new Error(); return r.json(); });
+    }
+
     if (form) form.addEventListener("submit", function (e) {
       e.preventDefault();
       var name = nameInput ? nameInput.value.trim() : "";
@@ -381,12 +391,7 @@
       if (!configured) { alert("Reviews aren't connected yet. Please try again later."); return; }
       var btn = form.querySelector('[type="submit"]');
       btn.disabled = true; btn.textContent = "Posting…";
-      fetch(base + "/rest/v1/reviews", {
-        method: "POST",
-        headers: headers({ "Content-Type": "application/json", Prefer: "return=representation" }),
-        body: JSON.stringify({ name: name, rating: rating, comment: comment })
-      })
-        .then(function (r) { if (!r.ok) throw new Error(); return r.json(); })
+      postReview({ name: name, rating: rating, comment: comment })
         .then(function () {
           form.reset(); rating = 0; paintRating();
           form.hidden = true; if (openBtn) openBtn.hidden = false;
@@ -395,6 +400,37 @@
         .catch(function () { alert("Sorry, we couldn't post your review. Please try again."); })
         .then(function () { btn.disabled = false; btn.textContent = "Post review"; });
     });
+
+    /* Quick rate (rating only, no written review) */
+    const quickWrap = reviewsRoot.querySelector("[data-quick-rate]");
+    const quickMsg = reviewsRoot.querySelector("[data-quick-rate-msg]");
+    let quickBusy = false;
+    function paintQuick(n) {
+      if (!quickWrap) return;
+      quickWrap.querySelectorAll("button").forEach(function (b, idx) { b.innerHTML = star(idx < n); });
+    }
+    if (quickWrap) {
+      for (var q = 1; q <= 5; q++) {
+        (function (v) {
+          var b = document.createElement("button");
+          b.type = "button";
+          b.setAttribute("aria-label", "Rate " + v + (v > 1 ? " stars" : " star"));
+          b.innerHTML = star(false);
+          b.addEventListener("click", function () {
+            if (quickBusy) return;
+            if (!configured) { alert("Reviews aren't connected yet. Please try again later."); return; }
+            quickBusy = true;
+            paintQuick(v);
+            if (quickMsg) quickMsg.textContent = "Saving…";
+            postReview({ name: "Anonymous", rating: v, comment: "" })
+              .then(function () { if (quickMsg) quickMsg.textContent = "Thanks for rating!"; load(); })
+              .catch(function () { if (quickMsg) quickMsg.textContent = "Couldn't save — please try again."; paintQuick(0); })
+              .then(function () { quickBusy = false; });
+          });
+          quickWrap.appendChild(b);
+        })(q);
+      }
+    }
 
     load();
   }
