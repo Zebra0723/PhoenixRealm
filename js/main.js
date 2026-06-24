@@ -435,6 +435,20 @@
     load();
   }
 
+  /* ---- Back to top ---- */
+  (function () {
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "to-top";
+    btn.setAttribute("aria-label", "Back to top");
+    btn.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V6M6 12l6-6 6 6"/></svg>';
+    document.body.appendChild(btn);
+    function onScroll() { btn.classList.toggle("is-visible", window.pageYOffset > 500); }
+    btn.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: "smooth" }); });
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  })();
+
   /* ---- Footer year ---- */
   const yearEl = document.querySelector("[data-year]");
   if (yearEl) yearEl.textContent = new Date().getFullYear();

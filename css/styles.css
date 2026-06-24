@@ -328,6 +328,17 @@ h1,h2,h3,h4 {
 .realm--abyss .tag-pill:hover { background: var(--coral-tint); color: var(--coral); }
 .realm--abyss .tag-pill .dot { background: var(--coral); }
 
+/* Signature attractions (ride line-ups) */
+.rides { margin-top: 26px; }
+.rides__title { font-family: var(--font-display); font-weight: 600; font-size: 1rem; color: var(--ink); margin-bottom: 12px; }
+.rides__list { display: grid; gap: 11px; }
+.rides__list li { position: relative; padding-left: 18px; color: var(--ink-soft); font-size: .96rem; line-height: 1.5; }
+.rides__list li::before { content: ""; position: absolute; left: 0; top: .55em; width: 7px; height: 7px; border-radius: 50%; background: var(--teal); }
+.rides__name { font-family: var(--font-display); font-weight: 600; color: var(--ink); }
+.realm--mythos .rides__list li::before { background: var(--gold); }
+.realm--hydro .rides__list li::before { background: var(--teal); }
+.realm--abyss .rides__list li::before { background: var(--coral); }
+
 /* ---------- Facility / feature cards ---------- */
 .feature h3 { font-size: 1.18rem; margin-bottom: 6px; }
 .feature p { color: var(--ink-soft); font-size: .96rem; }
@@ -579,6 +590,14 @@ h1,h2,h3,h4 {
 .quick-rate__label { font-family: var(--font-display); font-weight: 600; color: var(--ink); font-size: .95rem; }
 .quick-rate .rating-input svg { width: 26px; height: 26px; }
 .quick-rate__msg { font-size: .88rem; color: var(--teal); font-weight: 500; }
+
+/* ---------- Back to top ---------- */
+.to-top { position: fixed; right: 22px; bottom: 22px; width: 46px; height: 46px; border-radius: 50%; background: var(--coral); border: none; display: grid; place-items: center; box-shadow: var(--shadow-md); cursor: pointer; opacity: 0; visibility: hidden; transform: translateY(10px); transition: opacity .25s var(--ease), transform .25s var(--ease), background .25s var(--ease); z-index: 55; }
+.to-top.is-visible { opacity: 1; visibility: visible; transform: none; }
+.to-top:hover { background: var(--coral-soft); }
+.to-top:focus-visible { outline: none; box-shadow: var(--ring); }
+.to-top svg { width: 22px; height: 22px; stroke: #fff; fill: none; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+@media (max-width: 560px) { .to-top { right: 16px; bottom: 16px; } }
 
 /* ---------- Footer ---------- */
 .footer { background: var(--ink); color: #C9D1D9; padding: 64px 0 32px; }
