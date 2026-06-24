@@ -126,15 +126,22 @@
       return { p: 0.08, level: "low", label: "Weekday — plenty of availability" };
     }
 
+    var discountEl = document.querySelector("[data-discount]");
     function recalc() {
-      let total = 0;
+      var subtotal = 0, count = 0;
       cards.forEach(function (card) {
         if (card.dataset.stock === "out") return;
-        const price = parseFloat(card.getAttribute("data-price")) || 0;
-        const input = card.querySelector("[data-qty]");
-        total += price * Math.max(0, parseInt(input.value, 10) || 0);
+        var price = parseFloat(card.getAttribute("data-price")) || 0;
+        var qty = Math.max(0, parseInt(card.querySelector("[data-qty]").value, 10) || 0);
+        subtotal += price * qty;
+        count += qty;
       });
-      if (totalEl) totalEl.textContent = fmt.format(total);
+      var discount = count >= 8 ? subtotal * 0.10 : 0;
+      if (totalEl) totalEl.textContent = fmt.format(subtotal - discount);
+      if (discountEl) {
+        if (discount > 0) { discountEl.hidden = false; discountEl.textContent = "Group discount (10%): −" + fmt.format(discount); }
+        else { discountEl.hidden = true; discountEl.textContent = ""; }
+      }
     }
 
     function applyStock(card) {

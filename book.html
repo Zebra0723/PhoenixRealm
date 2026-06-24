@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Book Now — Phoenix Realm</title>
   <meta name="description" content="Reserve tickets for Phoenix Realm. Choose adult, child, toddler or family pass tickets, pick a date and see your total. Prototype booking page." />
-  <link rel="icon" type="image/svg+xml" href="assets/logo.svg?v=21" />
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg?v=22" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=21" />
+  <link rel="stylesheet" href="css/styles.css?v=22" />
 </head>
 <body>
 
@@ -17,7 +17,7 @@
   <header class="nav" id="top">
     <div class="container nav__inner">
       <a class="brand" href="index.html" aria-label="Phoenix Realm home">
-        <img class="brand__logo" src="assets/logo.svg?v=21" alt="Phoenix Realm logo" />
+        <img class="brand__logo" src="assets/logo.svg?v=22" alt="Phoenix Realm logo" />
         <span class="brand__text">
           <span class="brand__name">Phoenix Realm</span>
           <span class="brand__tag">Awaken the adventure.</span>
@@ -128,6 +128,8 @@
           </article>
         </div>
 
+        <p class="booking-hint">Booking 8 or more tickets? A 10% group discount is applied automatically.</p>
+
         <!-- Availability bar -->
         <div class="avail-bar reveal">
           <span class="avail-bar__note">
@@ -146,6 +148,7 @@
             <div class="booking-total">
               <span>Total</span>
               <b data-total>&pound;0.00</b>
+              <span class="booking-total__save" data-discount hidden></span>
             </div>
             <div class="booking-actions">
               <button class="btn btn--lg" type="button" data-checkout>Continue to Checkout <span class="arrow" aria-hidden="true">&rarr;</span></button>
@@ -180,7 +183,7 @@
       <div class="footer__top">
         <div>
           <a class="brand" href="index.html" aria-label="Phoenix Realm home">
-            <img class="brand__logo" src="assets/logo.svg?v=21" alt="" />
+            <img class="brand__logo" src="assets/logo.svg?v=22" alt="" />
             <span class="brand__text">
               <span class="brand__name">Phoenix Realm</span>
               <span class="brand__tag">Awaken the adventure.</span>
@@ -209,6 +212,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=21"></script>
+  <script src="js/main.js?v=22"></script>
 </body>
 </html>
